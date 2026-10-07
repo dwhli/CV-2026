@@ -1,2161 +1,1603 @@
 <!DOCTYPE html><html lang="en"><head><meta name="x-poe-datastore-behavior" content="local_only"><meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://code.jquery.com https://unpkg.com https://d3js.org https://threejs.org https://cdn.plot.ly https://stackpath.bootstrapcdn.com https://maps.googleapis.com https://cdn.tailwindcss.com https://ajax.googleapis.com https://kit.fontawesome.com https://cdn.datatables.net https://maxcdn.bootstrapcdn.com https://code.highcharts.com https://tako-static-assets-production.s3.amazonaws.com https://www.youtube.com https://fonts.googleapis.com https://fonts.gstatic.com https://pfst.cf2.poecdn.net https://puc.poecdn.net https://i.imgur.com https://wikimedia.org https://*.icons8.com https://*.giphy.com https://picsum.photos https://images.unsplash.com; frame-src 'self' https://www.youtube.com https://trytako.com; child-src 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests; block-all-mixed-content;">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#101e29">
-<meta name="description" content="Danny L. — Strategy, transformation, and a perspective shaped by Hong Kong. Explore selected work and the person behind it.">
-<title>Danny L. — A Connected Perspective</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f4ed">
+  <meta name="description" content="Danny Li — Manager, Group CIO Office at AIA Group. Explore experience in investment transformation, consulting, communication and user-centred design.">
+  <title>Danny Li — A Harbour of Perspectives</title>
 
-<style>
-/* ─────────────────────────────────────────────
-   DESIGN SYSTEM
-   Midnight / ivory / jade / architectural lines
-───────────────────────────────────────────── */
-:root {
-  --ink: #152630;
-  --muted: #65727a;
-  --paper: #f5f4ef;
-  --white: #ffffff;
-  --line: #182d371c;
-  --jade: #245e55;
-  --jade-light: #bce0cf;
-  --night: #101e29;
-  --night-soft: #192d3b;
-  --gold: #d8b991;
-  --radius: 18px;
-  --max: 1240px;
-}
+  <style>
+    :root {
+      --paper: #f6f4ed;
+      --white: #fffef9;
+      --ink: #203c38;
+      --muted: #596b63;
+      --jade: #245e55;
+      --line: #cbd4c8;
+      --soft: #e9ece2;
+      --accent: #a94533;
+    }
 
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 96px; }
-body {
-  margin: 0;
-  background: var(--paper);
-  color: var(--ink);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  line-height: 1.65;
-}
-body.modal-open { overflow: hidden; }
-button, a { -webkit-tap-highlight-color: transparent; }
-button, input { font: inherit; }
-button { cursor: pointer; }
-a { color: inherit; }
-button:focus-visible, a:focus-visible, [tabindex]:focus-visible {
-  outline: 3px solid #78bba5;
-  outline-offset: 5px;
-}
-button:disabled { cursor: default; }
-::selection { background: #c5dfd1; color: var(--ink); }
+    * { box-sizing: border-box; }
 
-.wrap {
-  width: min(var(--max), calc(100% - 80px));
-  margin-inline: auto;
-}
-.skip {
-  position: fixed;
-  top: -100px;
-  left: 20px;
-  background: var(--ink);
-  color: white;
-  padding: 12px 18px;
-  z-index: 100;
-}
-.skip:focus { top: 12px; }
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0,0,0,0);
-  white-space: nowrap;
-  border: 0;
-}
-button, a { touch-action: manipulation; }
-svg { display: block; }
+    html { scroll-behavior: smooth; }
 
-/* HEADER */
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 30;
-  border-bottom: 1px solid var(--line);
-  background: #f5f4eff5;
-  backdrop-filter: blur(18px);
-}
-.header-inner {
-  height: 82px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-}
-.brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 13px;
-  text-decoration: none;
-  flex-shrink: 0;
-}
-.brand-icon {
-  width: 37px;
-  height: 37px;
-  color: var(--jade);
-}
-.brand-name {
-  font-size: 16px;
-  letter-spacing: -.5px;
-  font-weight: 750;
-}
-.brand-sub {
-  display: block;
-  color: var(--muted);
-  font-size: 9px;
-  font-weight: 500;
-  letter-spacing: 1.8px;
-  text-transform: uppercase;
-  margin-top: 1px;
-}
-.header-right, .nav-links {
-  display: flex;
-  align-items: center;
-  gap: 28px;
-}
-.nav-links a {
-  text-decoration: none;
-  font-size: 12px;
-  color: var(--muted);
-}
-.nav-links a:hover { color: var(--jade); }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
 
-.btn {
-  min-height: 44px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  padding: 12px 19px;
-  border: 1px solid var(--line);
-  border-radius: 6px;
-  background: transparent;
-  color: var(--ink);
-  text-decoration: none;
-  font-size: 12px;
-  font-weight: 650;
-  line-height: 1.4;
-  transition: background .2s, border-color .2s, transform .2s;
-}
-.btn:hover {
-  border-color: #245e5560;
-  background: #245e5507;
-  transform: translateY(-2px);
-}
-.btn-dark { background: var(--ink); color: white; border-color: var(--ink); }
-.btn-dark:hover { background: var(--jade); color: white; }
-.btn-light {
-  color: white;
-  border-color: #ffffff35;
-}
-.btn-light:hover { background: #ffffff0c; border-color: #ffffff70; }
-.arrow { font-size: 17px; font-weight: 400; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    button { font: inherit; }
+    button, .button { touch-action: manipulation; }
+    a { color: inherit; text-underline-offset: 4px; }
 
-/* HERO */
-.hero {
-  padding-top: 77px;
-  padding-bottom: 39px;
-}
-.eyebrow {
-  display: flex;
-  align-items: center;
-  gap: 11px;
-  color: var(--jade);
-  text-transform: uppercase;
-  font-size: 10px;
-  font-weight: 650;
-  letter-spacing: 2.1px;
-}
-.eyebrow::before {
-  content: "";
-  width: 23px;
-  height: 1px;
-  background: currentColor;
-}
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1.25fr .75fr;
-  align-items: end;
-  gap: 64px;
-  margin-top: 22px;
-}
-h1 {
-  font-size: clamp(45px, 5.9vw, 83px);
-  line-height: 1.02;
-  font-weight: 560;
-  letter-spacing: -4.7px;
-  margin: 0;
-}
-h1 em {
-  font-family: Georgia, "Times New Roman", serif;
-  font-weight: 400;
-  color: var(--jade);
-}
-.hero-copy {
-  padding-bottom: 3px;
-  max-width: 380px;
-}
-.hero-copy p {
-  font-size: 15px;
-  color: var(--muted);
-  margin: 0 0 23px;
-}
-.hero-copy strong { color: var(--ink); font-weight: 600; }
-.hero-actions { display: flex; align-items: center; gap: 15px; flex-wrap: wrap; }
-.text-link {
-  border: 0;
-  background: none;
-  padding: 10px 0;
-  display: inline-flex;
-  align-items: center;
-  gap: 13px;
-  color: var(--ink);
-  font-size: 12px;
-  text-decoration: none;
-}
-.text-link:hover { color: var(--jade); }
-.hero-baseline {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 38px;
-  color: var(--muted);
-  font-size: 9px;
-  text-transform: uppercase;
-  letter-spacing: 1.7px;
-}
-.location {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-}
-.location-dot {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--jade);
-}
+    button:focus-visible,
+    a:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 5px;
+    }
 
-/* SKYLINE EXPLORER */
-.city-shell {
-  background: var(--night);
-  color: #edf3f4;
-  border-radius: var(--radius);
-  overflow: hidden;
-  position: relative;
-  box-shadow: 0 25px 65px #10233013;
-}
-.city-topbar {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  padding: 23px 29px;
-  border-bottom: 1px solid #ffffff12;
-}
-.city-title {
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: .6px;
-}
-.city-title span { color: #a8b8c2; margin-left: 12px; }
-.city-utility {
-  display: flex;
-  align-items: center;
-  gap: 19px;
-  font-size: 9px;
-  color: #adbec6;
-  letter-spacing: 1.2px;
-  text-transform: uppercase;
-}
-.city-utility button {
-  color: #d8e5e9;
-  background: none;
-  border: none;
-  border-bottom: 1px solid #ffffff35;
-  font-size: 10px;
-  padding: 3px 0;
-  letter-spacing: .3px;
-}
-.city-visual {
-  height: clamp(370px, 40vw, 505px);
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-  background: #172a3b;
-}
-.skyline {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-}
-.city-visual::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: linear-gradient(180deg, #10212c0a 65%, #101e29a6);
-  z-index: 1;
-}
-.city-caption {
-  position: absolute;
-  top: 24px;
-  left: 29px;
-  z-index: 2;
-  max-width: 210px;
-}
-.city-caption .micro {
-  color: #b6cbd0;
-  font-size: 8px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-.city-caption p {
-  margin: 8px 0 0;
-  color: #e6f0f0;
-  font-size: 18px;
-  line-height: 1.35;
-  font-weight: 400;
-  letter-spacing: -.5px;
-}
-.city-caption p span { color: #a1b5c1; }
-.city-coordinate {
-  position: absolute;
-  right: 28px;
-  top: 26px;
-  z-index: 2;
-  text-align: right;
-  color: #b3c6d0;
-  font-size: 8px;
-  line-height: 1.9;
-  letter-spacing: 1.6px;
-  text-transform: uppercase;
-}
-.city-coordinate strong {
-  display: block;
-  color: #e6eff2;
-  font-weight: 400;
-  font-size: 17px;
-  letter-spacing: 5px;
-}
-.city-hint {
-  position: absolute;
-  bottom: 19px;
-  left: 29px;
-  z-index: 3;
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  color: #a9bec8;
-  font-size: 9px;
-}
-.city-hint i {
-  width: 5px;
-  height: 5px;
-  background: var(--jade-light);
-  border-radius: 50%;
-}
-.city-note {
-  position: absolute;
-  bottom: 20px;
-  right: 28px;
-  z-index: 3;
-  font-size: 8px;
-  letter-spacing: .3px;
-  color: #90a6b4;
-}
+    [hidden] { display: none !important; }
 
-.city-pin {
-  position: absolute;
-  z-index: 4;
-  left: var(--x);
-  top: var(--y);
-  transform: translate(-50%, -50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border: 0;
-  padding: 12px;
-  background: transparent;
-  color: white;
-  min-width: 48px;
-}
-.pin-label {
-  display: flex;
-  align-items: center;
-  gap: 11px;
-  padding: 9px 12px;
-  border: 1px solid #b9d8d942;
-  border-radius: 4px;
-  background: #10232fe8;
-  box-shadow: 0 8px 25px #0003;
-  font-size: 10px;
-  white-space: nowrap;
-  transition: background .2s, border-color .2s;
-}
-.pin-label small {
-  font-size: 8px;
-  color: var(--jade-light);
-}
-.pin-line {
-  display: block;
-  height: 33px;
-  width: 1px;
-  background: linear-gradient(#bfe4d766, #bfe4d7);
-}
-.pin-dot {
-  display: grid;
-  place-items: center;
-  width: 12px;
-  height: 12px;
-  border: 1px solid #c0e3d6;
-  border-radius: 50%;
-  background: var(--night);
-  box-shadow: 0 0 0 5px #bce0cf12;
-  transition: box-shadow .25s, background .25s;
-}
-.pin-dot::after {
-  content: "";
-  width: 4px;
-  height: 4px;
-  background: #c0e3d6;
-  border-radius: 50%;
-}
-.city-pin:hover .pin-label,
-.city-pin:focus-visible .pin-label {
-  background: #245e55;
-  border-color: #bce0cf;
-}
-.city-pin:hover .pin-dot { box-shadow: 0 0 0 9px #bce0cf18; }
-.city-pin.visited .pin-dot { background: var(--jade-light); }
-.city-pin.visited .pin-dot::after { background: var(--jade); }
+    .shell {
+      width: min(1120px, calc(100% - 48px));
+      margin-inline: auto;
+    }
 
-.city-index {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  border-top: 1px solid #ffffff17;
-}
-.city-index-btn {
-  position: relative;
-  padding: 23px 25px;
-  color: white;
-  background: #ffffff00;
-  border: none;
-  text-align: left;
-  transition: background .25s;
-}
-.city-index-btn + .city-index-btn { border-left: 1px solid #ffffff17; }
-.city-index-btn:hover { background: #ffffff06; }
-.index-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 8px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: #9eb3c0;
-  margin-bottom: 10px;
-}
-.index-state { color: #bce0cf; }
-.city-index-btn strong {
-  display: block;
-  font-size: 15px;
-  font-weight: 500;
-  letter-spacing: -.3px;
-}
-.city-index-btn .description {
-  display: block;
-  color: #a6b8c4;
-  font-size: 10px;
-  margin-top: 4px;
-}
-.index-arrow {
-  position: absolute;
-  right: 23px;
-  bottom: 23px;
-  font-size: 19px;
-  color: #c5dbdd;
-}
-.city-index-btn.visited::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: #93c7b2;
-}
-.explorer-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
-  color: var(--muted);
-  font-size: 10px;
-  padding: 19px 2px;
-}
-.discovery {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.discovery-track {
-  display: flex;
-  gap: 4px;
-}
-.discovery-track span {
-  width: 18px;
-  height: 3px;
-  background: #183e3220;
-  border-radius: 2px;
-}
-.discovery-track span.complete { background: var(--jade); }
-.reset-btn {
-  border: 0;
-  background: none;
-  color: var(--muted);
-  padding: 6px;
-  font-size: 10px;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
+    .skip-link {
+      position: fixed;
+      z-index: 100;
+      top: 12px;
+      left: 12px;
+      padding: 12px;
+      background: var(--white);
+      transform: translateY(-180%);
+    }
 
-/* EDITORIAL SECTIONS */
-.section {
-  padding: 84px 0;
-}
-.section-top {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 35px;
-  margin-bottom: 34px;
-}
-.section h2 {
-  font-size: clamp(30px, 3.5vw, 45px);
-  line-height: 1.13;
-  letter-spacing: -1.8px;
-  font-weight: 500;
-  margin: 16px 0 0;
-}
-.section-desc {
-  color: var(--muted);
-  font-size: 13px;
-  max-width: 325px;
-  margin: 0;
-}
-.profile-strip {
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-  display: grid;
-  grid-template-columns: .75fr 1.25fr;
-  gap: 90px;
-  padding: 46px 0;
-  margin-top: 40px;
-}
-.profile-strip h2 {
-  font-size: clamp(25px, 3vw, 35px);
-  line-height: 1.22;
-  letter-spacing: -1.1px;
-  font-weight: 500;
-  margin: 13px 0 0;
-}
-.profile-strip p {
-  margin: 0;
-  font-size: 15px;
-  color: var(--muted);
-  line-height: 1.85;
-}
-.profile-strip p strong { color: var(--ink); font-weight: 500; }
-.capabilities {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 21px;
-}
-.chip {
-  display: inline-block;
-  font-size: 10px;
-  color: var(--jade);
-  padding: 6px 10px;
-  border: 1px solid #245e5526;
-  border-radius: 4px;
-}
+    .skip-link:focus { transform: translateY(0); }
 
-.work-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 19px;
-}
-.work-card {
-  display: flex;
-  flex-direction: column;
-  background: #fbfbf8;
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  overflow: hidden;
-  transition: transform .25s, box-shadow .25s;
-}
-.work-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 16px 40px #122c3510;
-}
-.work-art {
-  position: relative;
-  height: 174px;
-  overflow: hidden;
-  background: var(--art-bg, #e6ebe5);
-  color: var(--art-ink, #285e55);
-  border-bottom: 1px solid #182d3708;
-}
-.art-caption {
-  position: absolute;
-  bottom: 15px;
-  left: 20px;
-  font-size: 8px;
-  font-weight: 600;
-  letter-spacing: 1.7px;
-}
-.art-corner {
-  position: absolute;
-  right: 19px;
-  top: 13px;
-  font-size: 8px;
-  letter-spacing: 1px;
-  opacity: .7;
-}
-.work-art svg { width: 100%; height: 100%; }
-.work-copy {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  padding: 25px;
-}
-.work-type {
-  color: var(--jade);
-  text-transform: uppercase;
-  font-size: 8px;
-  letter-spacing: 1.5px;
-  font-weight: 600;
-}
-.work-copy h3 {
-  font-size: 20px;
-  line-height: 1.32;
-  letter-spacing: -.6px;
-  font-weight: 500;
-  margin: 12px 0;
-}
-.work-copy p {
-  color: var(--muted);
-  font-size: 12px;
-  margin: 0 0 25px;
-}
-.work-copy .text-link {
-  margin-top: auto;
-  justify-content: space-between;
-  border-top: 1px solid var(--line);
-  padding-top: 16px;
-  width: 100%;
-  text-align: left;
-}
+    .site-header,
+    .header-actions,
+    .hero-actions,
+    .section-heading,
+    .explorer-footer,
+    .site-footer,
+    .dialog-header,
+    .dialog-footer {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
 
-/* BEYOND WORK */
-.beyond {
-  border-radius: var(--radius);
-  background: #e8ece5;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  overflow: hidden;
-}
-.beyond-copy { padding: 53px; }
-.beyond h2 {
-  font-size: clamp(30px, 3.8vw, 45px);
-  margin: 18px 0;
-  line-height: 1.12;
-  letter-spacing: -1.7px;
-  font-weight: 500;
-}
-.beyond p {
-  font-size: 13px;
-  color: #5a6b63;
-  max-width: 380px;
-}
-.beyond .text-link { margin-top: 15px; }
-.beyond-art {
-  position: relative;
-  display: grid;
-  place-items: center;
-  overflow: hidden;
-  min-height: 345px;
-  border-left: 1px solid #245e5517;
-  background-image:
-    linear-gradient(#245e5508 1px, transparent 1px),
-    linear-gradient(90deg, #245e5508 1px, transparent 1px);
-  background-size: 29px 29px;
-}
-.beyond-art svg { width: 100%; height: 100%; position: absolute; inset: 0; }
-.beyond-art-label {
-  position: absolute;
-  left: 25px;
-  bottom: 22px;
-  color: #476558;
-  font-size: 8px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-}
+    .site-header {
+      justify-content: space-between;
+      padding-block: 24px;
+      border-bottom: 1px solid var(--line);
+    }
 
-/* CONTACT */
-.contact {
-  padding: 97px 0 75px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 45px;
-}
-.contact h2 {
-  font-size: clamp(33px, 4.5vw, 58px);
-  font-weight: 500;
-  line-height: 1.08;
-  letter-spacing: -2.5px;
-  margin: 15px 0 18px;
-}
-.contact h2 em {
-  font-family: Georgia, serif;
-  color: var(--jade);
-  font-weight: 400;
-}
-.contact p { color: var(--muted); font-size: 13px; margin: 0; }
-.contact-actions { display: flex; flex-direction: column; gap: 10px; min-width: 188px; }
+    .brand {
+      text-decoration: none;
+      font-weight: 750;
+      letter-spacing: -.6px;
+    }
 
-footer { border-top: 1px solid var(--line); }
-.footer-inner {
-  padding-block: 25px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 25px;
-  font-size: 10px;
-  color: var(--muted);
-}
-.footer-inner span strong { color: var(--ink); font-weight: 600; }
-.footer-tools { display: flex; gap: 20px; align-items: center; }
-.footer-tools button, .footer-tools a {
-  border: none;
-  padding: 4px 0;
-  background: none;
-  color: var(--muted);
-  text-decoration: none;
-  font-size: 10px;
-}
-.footer-tools button:hover, .footer-tools a:hover { color: var(--jade); }
+    .brand span { color: var(--accent); }
 
-/* PROFILE PANEL */
-dialog {
-  width: min(850px, calc(100% - 32px));
-  max-height: 88vh;
-  max-height: 88dvh;
-  border: 1px solid #dce2dd;
-  border-radius: 15px;
-  padding: 0;
-  color: var(--ink);
-  background: var(--paper);
-  box-shadow: 0 35px 120px #06172245;
-}
-dialog::backdrop { background: #081723a6; backdrop-filter: blur(8px); }
-.dialog-top {
-  position: sticky;
-  top: 0;
-  z-index: 3;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  padding: 18px 32px;
-  background: #f5f4effa;
-  border-bottom: 1px solid var(--line);
-}
-.dialog-label {
-  color: var(--jade);
-  font-size: 9px;
-  text-transform: uppercase;
-  letter-spacing: 1.7px;
-}
-.close-btn {
-  width: 42px;
-  height: 42px;
-  display: grid;
-  place-items: center;
-  border: 1px solid var(--line);
-  border-radius: 50%;
-  background: transparent;
-  color: var(--ink);
-  font-size: 25px;
-  font-weight: 300;
-}
-.close-btn:hover { background: #245e550a; }
-.dialog-body { padding: 35px 43px 43px; }
-.dialog-body h2 {
-  font-size: clamp(29px, 4vw, 42px);
-  line-height: 1.13;
-  font-weight: 500;
-  letter-spacing: -1.5px;
-  margin: 0 0 20px;
-}
-.dialog-body .lead {
-  color: var(--muted);
-  font-size: 14px;
-  line-height: 1.85;
-  margin: 0 0 25px;
-}
-.content-section-title {
-  margin: 32px 0 14px;
-  font-size: 10px;
-  color: var(--jade);
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  font-weight: 600;
-}
-.detail-card {
-  padding: 20px 0;
-  border-bottom: 1px solid var(--line);
-}
-.detail-card h4 {
-  font-size: 16px;
-  font-weight: 600;
-  letter-spacing: -.25px;
-  margin: 0 0 6px;
-}
-.detail-meta { color: var(--jade); font-size: 10px; margin-bottom: 9px; }
-.detail-card p {
-  color: var(--muted);
-  font-size: 12px;
-  line-height: 1.85;
-  white-space: pre-line;
-  margin: 0;
-}
-.profile-chapter + .profile-chapter { margin-top: 42px; padding-top: 32px; border-top: 1px solid var(--line); }
-.full-profile-header { padding-bottom: 26px; border-bottom: 1px solid var(--line); margin-bottom: 30px; }
-.full-profile-header p { color: var(--muted); font-size: 13px; }
-.full-profile-header a { color: var(--jade); font-size: 12px; text-underline-offset: 4px; }
-.dialog-bottom {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 15px;
-  padding: 20px 32px;
-  border-top: 1px solid var(--line);
-}
-.dialog-bottom small { color: var(--muted); font-size: 10px; }
-.toast {
-  position: fixed;
-  bottom: 25px;
-  left: 50%;
-  transform: translate(-50%, 15px);
-  opacity: 0;
-  pointer-events: none;
-  background: var(--ink);
-  color: white;
-  font-size: 12px;
-  padding: 13px 20px;
-  border-radius: 7px;
-  z-index: 50;
-  max-width: calc(100% - 35px);
-  transition: opacity .2s, transform .2s;
-  text-align: center;
-}
-.toast.visible { opacity: 1; transform: translate(-50%, 0); }
-#printProfile { display: none; }
+    .header-actions,
+    .hero-actions { flex-wrap: wrap; }
 
-/* Only decorative elements move. */
-.ferry { animation: harbour-drift 18s ease-in-out infinite alternate; }
-.water-glimmer { animation: water-light 6s ease-in-out infinite alternate; }
-@keyframes harbour-drift { to { transform: translateX(24px); } }
-@keyframes water-light { to { opacity: .38; } }
+    .text-button {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 6px 0;
+      border: 0;
+      background: none;
+      color: var(--jade);
+      font-size: 13px;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      cursor: pointer;
+    }
 
-/* RESPONSIVE */
-@media (min-width: 1500px) {
-  .hero { padding-top: 90px; }
-}
-@media (max-width: 1050px) {
-  .wrap { width: calc(100% - 48px); }
-  .nav-links { gap: 18px; }
-  .header-right { gap: 22px; }
-  .hero-grid { gap: 40px; }
-  h1 { letter-spacing: -3.4px; }
-  .city-index-btn { padding: 21px 18px; }
-  .city-index-btn strong { font-size: 14px; }
-  .index-arrow { right: 16px; }
-  .profile-strip { gap: 45px; }
-  .beyond-copy { padding: 40px; }
-  .work-copy { padding: 21px; }
-}
-@media (max-width: 760px) {
-  .wrap { width: calc(100% - 36px); }
-  .header-inner { height: 71px; }
-  .nav-links { display: none; }
-  .brand-sub { font-size: 8px; letter-spacing: 1.3px; }
-  .brand-name { font-size: 15px; }
-  .brand-icon { width: 31px; height: 31px; }
-  .header-right .btn { padding: 10px 13px; font-size: 11px; gap: 12px; }
-  .hero { padding-top: 44px; padding-bottom: 24px; }
-  .hero-grid { grid-template-columns: 1fr; gap: 25px; margin-top: 22px; }
-  h1 { font-size: clamp(46px, 9.5vw, 67px); letter-spacing: -2.9px; }
-  .hero-copy { max-width: 480px; }
-  .hero-copy p { font-size: 14px; margin-bottom: 19px; }
-  .hero-baseline { margin-top: 27px; font-size: 8px; letter-spacing: 1px; }
-  .hero-baseline > span:last-child { display: none; }
-  .city-shell { border-radius: 12px; }
-  .city-topbar { padding: 17px 19px; }
-  .city-title { font-size: 10px; }
-  .city-title span { display: none; }
-  .city-utility { gap: 0; }
-  .city-utility > span { display: none; }
-  .city-visual { height: 380px; }
-  .city-caption { top: 19px; left: 20px; }
-  .city-caption p { font-size: 16px; }
-  .city-coordinate { right: 20px; top: 19px; }
-  .city-coordinate strong { font-size: 14px; }
-  .pin-label { padding: 7px 8px; }
-  .pin-label .pin-name { display: none; }
-  .pin-label small { font-size: 10px; }
-  .pin-line { height: 26px; }
-  .city-pin { top: var(--mobile-y, var(--y)); }
-  .city-hint { left: 19px; bottom: 15px; font-size: 8px; }
-  .city-note { display: none; }
-  .city-index { grid-template-columns: 1fr 1fr; }
-  .city-index-btn { padding: 17px 19px 21px; }
-  .city-index-btn:nth-child(3) { border-left: 0; }
-  .city-index-btn:nth-child(n+3) { border-top: 1px solid #ffffff17; }
-  .index-top { margin-bottom: 7px; font-size: 7px; }
-  .city-index-btn strong { font-size: 14px; }
-  .city-index-btn .description { font-size: 9px; padding-right: 8px; }
-  .index-arrow { right: 15px; bottom: 19px; font-size: 15px; }
-  .explorer-footer { align-items: flex-start; font-size: 9px; }
-  .explorer-footer > span { max-width: 150px; }
-  .discovery { gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
-  .discovery-track span { width: 12px; }
-  .section { padding: 56px 0; }
-  .section-top { align-items: flex-start; flex-direction: column; gap: 20px; margin-bottom: 25px; }
-  .section h2 { letter-spacing: -1.2px; }
-  .section-desc { max-width: 450px; font-size: 12px; }
-  .profile-strip { grid-template-columns: 1fr; gap: 23px; padding: 31px 0; margin-top: 23px; }
-  .profile-strip p { font-size: 13px; }
-  .work-grid { grid-template-columns: 1fr; gap: 20px; }
-  .work-art { height: 175px; }
-  .work-copy { padding: 24px; }
-  .work-copy h3 { font-size: 23px; }
-  .beyond { grid-template-columns: 1fr; }
-  .beyond-copy { padding: 31px; }
-  .beyond-art { min-height: 270px; border-left: 0; border-top: 1px solid #245e5517; }
-  .contact { flex-direction: column; align-items: flex-start; padding: 63px 0 48px; gap: 28px; }
-  .contact h2 { letter-spacing: -1.6px; }
-  .contact-actions { flex-direction: row; flex-wrap: wrap; width: 100%; }
-  .contact-actions .btn { flex: 1; white-space: nowrap; }
-  .footer-inner { align-items: flex-start; flex-direction: column; gap: 15px; padding-block: 22px; }
-  .footer-tools { justify-content: space-between; width: 100%; gap: 10px; }
-  .dialog-top, .dialog-bottom { padding: 15px 22px; }
-  .dialog-body { padding: 28px 25px; }
-  .dialog-bottom small { max-width: 130px; }
-}
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  *, *::before, *::after {
-    animation: none !important;
-    transition: none !important;
-  }
-}
-body.motion-paused .ferry,
-body.motion-paused .water-glimmer { animation-play-state: paused; }
+    .hero { padding: 64px 0 30px; }
 
-/* CLEAN PDF / PRINT */
-@media print {
-  @page { size: auto; margin: 16mm; }
-  html, body { background: white !important; color: #172630 !important; }
-  body { overflow: visible !important; font-size: 10pt; }
-  body > :not(#printProfile) { display: none !important; }
-  dialog, dialog::backdrop { display: none !important; }
-  #printProfile { display: block !important; }
-  #printProfile h1 { font-size: 28pt; letter-spacing: -1px; margin: 0 0 12px; }
-  #printProfile h2 { font-size: 19pt; letter-spacing: -.6px; margin: 0 0 14px; }
-  #printProfile h3 { font-size: 10pt; }
-  #printProfile p, #printProfile .lead { font-size: 10pt; color: #354751; }
-  #printProfile .detail-card { padding: 12px 0; break-inside: avoid; }
-  #printProfile .detail-card h4 { font-size: 11pt; }
-  #printProfile .detail-meta { font-size: 9pt; color: #245e55; }
-  #printProfile .detail-card p { font-size: 9.5pt; }
-  #printProfile .profile-chapter { margin-top: 24px; padding-top: 20px; }
-  #printProfile .chip { font-size: 8pt; padding: 4px 7px; }
-  #printProfile .full-profile-header { margin-bottom: 24px; padding-bottom: 18px; }
-  #printProfile a { font-size: 10pt; }
-  #printProfile h2, #printProfile h3, #printProfile h4 { break-after: avoid; }
-}
-</style>
+    .eyebrow {
+      margin: 0 0 16px;
+      color: var(--jade);
+      font-size: 11px;
+      font-weight: 750;
+      letter-spacing: 1.7px;
+      line-height: 1.8;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 900px;
+      margin: 0;
+      font-size: clamp(43px, 6.8vw, 77px);
+      font-weight: 550;
+      line-height: 1.08;
+      letter-spacing: -.06em;
+    }
+
+    h1 em {
+      color: var(--jade);
+      font-family: Georgia, serif;
+      font-weight: 400;
+    }
+
+    .intro {
+      max-width: 670px;
+      margin: 24px 0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.85;
+    }
+
+    .hero-actions { gap: 10px; }
+
+    .button {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      min-height: 44px;
+      padding: 12px 18px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: transparent;
+      color: var(--ink);
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.5;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background .18s, transform .18s;
+    }
+
+    .button:hover { background: var(--soft); }
+
+    .button.primary {
+      border-color: var(--jade);
+      background: var(--jade);
+      color: white;
+    }
+
+    .button.primary:hover {
+      background: #194a42;
+      transform: translateY(-1px);
+    }
+
+    .facts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px 22px;
+      margin-top: 26px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .facts span::before {
+      content: "•";
+      margin-right: 8px;
+      color: var(--accent);
+    }
+
+    .explorer { margin-top: 25px; }
+
+    .section-heading {
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 14px;
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      font-size: 15px;
+      font-weight: 650;
+    }
+
+    .section-heading p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    .city {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: linear-gradient(#f0f0e6, #e7ede4);
+    }
+
+    .city-art {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .city-caption {
+      position: absolute;
+      top: 19px;
+      left: 22px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+    }
+
+    .boat {
+      animation: drift 9s ease-in-out 2 alternate;
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+
+    .motion-off .boat { animation: none; }
+
+    @keyframes drift {
+      from { transform: translateX(-12px); }
+      to { transform: translateX(16px); }
+    }
+
+    .districts {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      padding: 0 18px 18px;
+    }
+
+    .district {
+      position: relative;
+      min-height: 116px;
+      padding: 17px 15px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+      color: var(--ink);
+      text-align: left;
+      cursor: pointer;
+      transition: transform .2s, border-color .2s, background .2s;
+    }
+
+    .district:hover {
+      transform: translateY(-4px);
+      border-color: var(--jade);
+    }
+
+    .district.visited { background: #e0eadf; }
+
+    .district-number {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--jade);
+      font-size: 10px;
+      letter-spacing: 1px;
+    }
+
+    .district strong {
+      display: block;
+      padding-right: 15px;
+      font-size: 13px;
+      font-weight: 650;
+    }
+
+    .district small {
+      display: block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.5;
+    }
+
+    .district-check {
+      position: absolute;
+      top: 16px;
+      right: 14px;
+      color: var(--jade);
+    }
+
+    .explorer-footer {
+      justify-content: space-between;
+      flex-wrap: wrap;
+      padding: 5px 2px;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .explorer-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .explorer-controls .text-button { font-size: 11px; }
+
+    .passport {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 24px;
+      margin-top: 12px;
+      padding: 26px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--soft);
+    }
+
+    .passport .eyebrow { margin-bottom: 8px; }
+
+    .passport h2 {
+      margin: 0 0 9px;
+      font-size: 23px;
+      font-weight: 550;
+      letter-spacing: -.7px;
+    }
+
+    .passport-status {
+      margin: 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    .stamps {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 17px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .stamp {
+      padding: 7px 9px;
+      border: 1px dashed #8ca08f;
+      border-radius: 5px;
+      color: var(--muted);
+      font-size: 10px;
+    }
+
+    .stamp.earned {
+      border-style: solid;
+      background: #dce9de;
+      color: var(--jade);
+    }
+
+    .passport-action {
+      display: grid;
+      justify-items: end;
+      gap: 10px;
+    }
+
+    .passport-action small {
+      max-width: 230px;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.6;
+      text-align: right;
+    }
+
+    .contact {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 22px;
+      padding-top: 46px;
+    }
+
+    .contact h2 {
+      margin: 0 0 8px;
+      font-size: 25px;
+      font-weight: 550;
+      letter-spacing: -.8px;
+    }
+
+    .contact p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .site-footer {
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-top: 40px;
+      padding: 24px 0 32px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.7;
+    }
+
+    .site-footer p { margin: 0; }
+    .site-footer p:last-child { max-width: 430px; }
+
+    dialog {
+      width: min(800px, calc(100% - 28px));
+      max-height: 88vh;
+      max-height: 88dvh;
+      padding: 0;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--paper);
+      color: var(--ink);
+      overflow: auto;
+    }
+
+    dialog::backdrop {
+      background: rgb(18 39 34 / .5);
+      backdrop-filter: blur(4px);
+    }
+
+    .dialog-header {
+      position: sticky;
+      z-index: 1;
+      top: 0;
+      justify-content: space-between;
+      padding: 12px 24px;
+      border-bottom: 1px solid var(--line);
+      background: var(--paper);
+    }
+
+    .dialog-label {
+      color: var(--jade);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      line-height: 1.7;
+      text-transform: uppercase;
+    }
+
+    .close-button {
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: none;
+      color: var(--ink);
+      font-size: 22px;
+      cursor: pointer;
+    }
+
+    .dialog-body { padding: 30px; }
+
+    .dialog-body h2 {
+      margin: 0 0 18px;
+      font-size: clamp(29px, 5vw, 42px);
+      font-weight: 550;
+      line-height: 1.15;
+      letter-spacing: -1.4px;
+    }
+
+    .lead {
+      margin: 0 0 24px;
+      color: var(--muted);
+      line-height: 1.85;
+      white-space: pre-line;
+    }
+
+    .content-card {
+      margin-top: 12px;
+      padding: 21px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    .content-card h3,
+    .content-card h4 {
+      margin: 0 0 8px;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    .card-meta {
+      margin: 0 0 10px;
+      color: var(--jade);
+      font-size: 11px;
+      font-weight: 600;
+      line-height: 1.6;
+    }
+
+    .card-text {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.85;
+      white-space: pre-line;
+    }
+
+    .profile-section { margin-top: 34px; }
+
+    .profile-section > h3 {
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--line);
+      font-size: 21px;
+    }
+
+    .profile-section > p {
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .dialog-footer {
+      justify-content: space-between;
+      padding: 20px 30px;
+      border-top: 1px solid var(--line);
+    }
+
+    .dialog-footer small {
+      max-width: 48%;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.7;
+    }
+
+    .print-profile { display: none; }
+
+    @media (max-width: 700px) {
+      .shell { width: calc(100% - 32px); }
+      .site-header { gap: 12px; padding-block: 16px; }
+      .header-actions { gap: 12px; }
+      .hero { padding-top: 40px; }
+      .intro { font-size: 15px; }
+      .section-heading { display: block; }
+      .section-heading p { margin-top: 7px; }
+      .districts { grid-template-columns: repeat(2, 1fr); }
+      .passport { grid-template-columns: 1fr; padding: 22px; }
+      .passport-action { justify-items: start; }
+      .passport-action small { text-align: left; max-width: none; }
+      .city-caption { top: 12px; left: 14px; font-size: 8px; }
+      .site-footer { flex-direction: column; }
+      .dialog-body { padding: 24px 20px; }
+      .dialog-footer { padding: 18px 20px; }
+      .dialog-footer .button { max-width: 55%; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    @media print {
+      @page { margin: 17mm; }
+
+      body {
+        background: white;
+        color: black;
+        font-size: 10pt;
+      }
+
+      body > :not(.print-profile) { display: none !important; }
+      .print-profile { display: block; }
+
+      .print-profile h1 {
+        font-size: 28pt;
+        letter-spacing: -1px;
+      }
+
+      .print-profile h2 {
+        margin-top: 22pt;
+        padding-bottom: 6pt;
+        border-bottom: 1px solid #aaa;
+        font-size: 15pt;
+        break-after: avoid;
+      }
+
+      .print-profile h3 {
+        margin: 12pt 0 4pt;
+        font-size: 11pt;
+        break-after: avoid;
+      }
+
+      .print-profile p {
+        line-height: 1.6;
+        white-space: pre-line;
+      }
+
+      .print-profile .card-meta {
+        margin-bottom: 4pt;
+        color: #333;
+        font-size: 9pt;
+      }
+
+      .print-card { break-inside: avoid; }
+      .print-contact { overflow-wrap: anywhere; }
+    }
+  </style>
 </head>
 
-<body id="top">
-<a class="skip" href="#main">Skip to content</a>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-<header class="site-header">
-  <div class="wrap header-inner">
-    <a class="brand" href="#top" aria-label="Danny L., home">
-      <svg class="brand-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true">
-        <path d="M5 33V17L13 12V33M17 33V7L25 3V33M29 33V16L35 12V33" stroke="currentColor" stroke-width="1.5"></path>
-        <path d="M2 37H38M17 8L25 17L17 25L25 33" stroke="currentColor" stroke-width="1.2"></path>
-      </svg>
-      <span>
-        <span class="brand-name">Danny L.</span>
-        <span class="brand-sub">A connected perspective</span>
-      </span>
+  <header class="site-header shell">
+    <a class="brand" href="#" aria-label="Danny Li home">
+      danny li<span>.</span>
     </a>
 
-    <div class="header-right">
-      <nav class="nav-links" aria-label="Main navigation">
-        <a href="#explore">Explore</a>
-        <a href="#work">Selected work</a>
-        <a href="#beyond">Beyond work</a>
-      </nav>
-      <button class="btn btn-dark" data-full-profile="">
-        Recruiter view <span class="arrow" aria-hidden="true">↗</span>
+    <nav class="header-actions" aria-label="Main navigation">
+      <button class="text-button" id="recruiterButton" type="button">
+        Recruiter view
       </button>
-    </div>
-  </div>
-</header>
+      <a class="text-button" href="#contact">Get in touch ↗</a>
+    </nav>
+  </header>
 
-<main id="main">
-  <section class="wrap hero" aria-labelledby="heroTitle">
-    <div class="eyebrow">Strategy · Transformation · Community</div>
+  <main class="shell" id="main">
+    <section class="hero" aria-labelledby="heroTitle">
+      <p class="eyebrow">
+        Danny Li / Manager, Group CIO Office / AIA Group
+      </p>
 
-    <div class="hero-grid">
       <h1 id="heroTitle">
-        Connecting ideas.<br>
-        <em>Moving forward.</em>
+        Connecting strategy,<br>
+        people &amp; <em>possibility.</em>
       </h1>
-      <div class="hero-copy">
-        <p>
-          I’m <strong>Danny</strong>. I work where business priorities,
-          people, and delivery meet—with a perspective shaped by
-          Hong Kong, and curiosity that extends beyond the office.
-        </p>
-        <div class="hero-actions">
-          <a class="btn btn-dark" href="#explore">
-            Explore my perspective <span class="arrow" aria-hidden="true">↓</span>
-          </a>
-          <button class="text-link" data-export="">
-            Export profile <span aria-hidden="true">↗</span>
-          </button>
-        </div>
-      </div>
-    </div>
 
-    <div class="hero-baseline">
-      <span class="location"><i class="location-dot" aria-hidden="true"></i> Hong Kong · 香港</span>
-      <span>Structured thinking. Creative perspective.</span>
-    </div>
-  </section>
-
-  <section class="wrap" id="explore" aria-labelledby="exploreTitle">
-    <h2 id="exploreTitle" class="sr-only">Explore my profile through an illustrated Hong Kong skyline</h2>
-
-    <div class="city-shell">
-      <div class="city-topbar">
-        <div class="city-title">THE CONNECTED CITY <span>Four perspectives. One story.</span></div>
-        <div class="city-utility">
-          <span>Interactive profile</span>
-          <button id="motionToggle" aria-pressed="false">Pause motion</button>
-        </div>
-      </div>
-
-      <div class="city-visual">
-        <!-- Original stylised illustration. Not a geographic map. -->
-        <svg class="skyline" viewBox="0 0 1240 505" preserveAspectRatio="none" aria-hidden="true">
-          <defs>
-            <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#142534"></stop>
-              <stop offset=".63" stop-color="#355064"></stop>
-              <stop offset="1" stop-color="#a1917d"></stop>
-            </linearGradient>
-            <linearGradient id="harbour" x1="0" y1="0" x2="0" y2="1">
-              <stop stop-color="#344f5b"></stop>
-              <stop offset="1" stop-color="#142632"></stop>
-            </linearGradient>
-            <linearGradient id="glass" x1="0" y1="0" x2="1" y2=".25">
-              <stop stop-color="#304b5b"></stop>
-              <stop offset=".46" stop-color="#496779"></stop>
-              <stop offset=".5" stop-color="#253c4c"></stop>
-              <stop offset="1" stop-color="#1b3140"></stop>
-            </linearGradient>
-            <linearGradient id="tower" x1="0" y1="0" x2="1" y2="0">
-              <stop stop-color="#416070"></stop>
-              <stop offset=".4" stop-color="#6f8b98"></stop>
-              <stop offset=".52" stop-color="#344e60"></stop>
-              <stop offset="1" stop-color="#263d4e"></stop>
-            </linearGradient>
-            <linearGradient id="warmGlass" x1="0" y1="0" x2="1" y2="0">
-              <stop stop-color="#344650"></stop>
-              <stop offset=".55" stop-color="#617174"></stop>
-              <stop offset="1" stop-color="#273c4b"></stop>
-            </linearGradient>
-            <linearGradient id="reflection" x1="0" y1="0" x2="0" y2="1">
-              <stop stop-color="#d0bc8c" stop-opacity=".28"></stop>
-              <stop offset="1" stop-color="#d0bc8c" stop-opacity="0"></stop>
-            </linearGradient>
-            <radialGradient id="glow">
-              <stop stop-color="#d8bd9226"></stop>
-              <stop offset="1" stop-color="#d8bd9200"></stop>
-            </radialGradient>
-            <pattern id="windows" width="12" height="15" patternUnits="userSpaceOnUse">
-              <rect x="3" y="4" width="3" height="5" fill="#e4cea1" opacity=".45"></rect>
-              <rect x="8" y="4" width="2" height="5" fill="#a5c4cc" opacity=".15"></rect>
-            </pattern>
-            <pattern id="smallWindows" width="9" height="11" patternUnits="userSpaceOnUse">
-              <rect x="3" y="3" width="2" height="3" fill="#d1d5bb" opacity=".38"></rect>
-            </pattern>
-            <pattern id="glassLines" width="8" height="10" patternUnits="userSpaceOnUse">
-              <path d="M0 0H8M1 0V10" fill="none" stroke="#b8d3dc" stroke-opacity=".12" stroke-width=".7"></path>
-            </pattern>
-          </defs>
-
-          <!-- Atmosphere and hills -->
-          <rect width="1240" height="505" fill="url(#sky)"></rect>
-          <ellipse cx="645" cy="290" rx="600" ry="255" fill="url(#glow)"></ellipse>
-          <circle cx="1070" cy="63" r="19" fill="#e8dfc1" opacity=".76"></circle>
-          <circle cx="1061" cy="57" r="18" fill="#203547"></circle>
-          <path d="M0 250L72 229L126 215L186 225L265 161L298 178L327 151L371 187L419 175L487 210L532 207L604 247L677 228L729 251L797 211L839 224L897 190L970 218L1031 211L1100 254L1170 227L1240 257V389H0Z" fill="#2b4352"></path>
-          <path d="M0 289L90 271L151 284L220 248L282 267L356 235L418 275L496 252L593 290L682 264L779 280L850 254L949 279L1056 263L1147 286L1240 270V389H0Z" fill="#233a49"></path>
-
-          <!-- Background urban grain -->
-          <g fill="#243d4c" stroke="#617a841f">
-            <path d="M0 321H29V270H55V300H76V253H99V319H122V284H147V309H174V263H195V323H221V279H248V327H279V295H302V334H324V280H347V328H371V305H391V267H413V315H437V280H464V328H488V299H514V321H541V277H561V330H589V298H615V322H642V285H670V316H693V271H719V328H747V294H773V322H801V273H826V312H852V281H879V321H908V265H932V311H963V289H990V322H1018V260H1044V304H1071V279H1099V312H1127V270H1152V318H1180V289H1208V310H1240V391H0Z"></path>
-          </g>
-
-          <!-- Left waterfront blocks -->
-          <g>
-            <rect x="20" y="300" width="67" height="88" fill="#203443"></rect>
-            <rect x="26" y="306" width="55" height="76" fill="url(#windows)"></rect>
-            <rect x="92" y="258" width="55" height="130" fill="#2d4655"></rect>
-            <rect x="97" y="267" width="45" height="114" fill="url(#smallWindows)"></rect>
-            <path d="M100 258V249H139V258" stroke="#8a9b9c" fill="none" opacity=".5"></path>
-          </g>
-
-          <!-- Landmark-inspired angular tower -->
-          <g>
-            <path d="M173 385V188L204 158L242 201V385Z" fill="url(#glass)"></path>
-            <path d="M204 158V139M216 172V148" stroke="#a5bfca" stroke-width="1.2"></path>
-            <path d="M173 188L242 270L173 345M204 158V385M242 201L173 270L242 345" fill="none" stroke="#accbd4" stroke-width="1.35" opacity=".68"></path>
-            <path d="M173 270H242M173 345H242" stroke="#accbd4" opacity=".5"></path>
-            <path d="M173 188L204 158L242 201" fill="none" stroke="#d0dfe1" opacity=".8"></path>
-            <rect x="180" y="225" width="56" height="153" fill="url(#glassLines)"></rect>
-          </g>
-
-          <g>
-            <rect x="250" y="278" width="54" height="110" fill="#263e4d"></rect>
-            <rect x="256" y="284" width="42" height="96" fill="url(#windows)"></rect>
-            <path d="M309 387V244H365V387" fill="#354d58"></path>
-            <rect x="315" y="251" width="43" height="129" fill="url(#smallWindows)"></rect>
-            <path d="M311 270H364M311 303H364M311 336H364" stroke="#a2b4b4" opacity=".22"></path>
-          </g>
-
-          <!-- Sculpted central tower -->
-          <g>
-            <path d="M397 385V150L406 119L415 108V94H445V108L455 121L464 151V385Z" fill="url(#tower)"></path>
-            <path d="M415 108H445M406 121H455M399 149H462" stroke="#bed1d7" opacity=".45"></path>
-            <path d="M408 136V380M416 116V380M425 101V380M435 101V380M445 119V380M454 137V380" stroke="#abc7d1" opacity=".28"></path>
-            <path d="M399 179H462M399 209H462M399 239H462M399 269H462M399 299H462M399 329H462M399 359H462" stroke="#adc1c6" opacity=".17"></path>
-            <path d="M415 95H445" stroke="#e5dec2" stroke-width="2"></path>
-            <rect x="400" y="157" width="62" height="225" fill="url(#glassLines)"></rect>
-          </g>
-
-          <!-- Mid-rise commercial architecture -->
-          <g>
-            <rect x="472" y="284" width="58" height="103" fill="#223847"></rect>
-            <rect x="478" y="290" width="46" height="92" fill="url(#windows)"></rect>
-            <path d="M539 387V226H597V387" fill="url(#warmGlass)"></path>
-            <path d="M539 226L552 214H586L597 226" fill="#627879"></path>
-            <rect x="545" y="234" width="46" height="147" fill="url(#windows)"></rect>
-            <path d="M610 388V270H662V388" fill="#2f4653"></path>
-            <rect x="615" y="279" width="42" height="102" fill="url(#smallWindows)"></rect>
-          </g>
-
-          <!-- Geometric office building -->
-          <g>
-            <path d="M680 388V186L715 172L752 190V388Z" fill="url(#glass)"></path>
-            <path d="M715 172V387M680 186L715 204L752 190" fill="none" stroke="#b2cbd0" opacity=".55"></path>
-            <path d="M687 218H707M687 236H707M687 254H707M687 272H707M687 290H707M687 308H707M687 326H707M687 344H707M687 362H707" stroke="#ddcfac" stroke-width="3" opacity=".3"></path>
-            <path d="M726 211V382M739 205V382" stroke="#9cb7c3" opacity=".3"></path>
-            <path d="M716 172V158" stroke="#9cb7c3" opacity=".6"></path>
-          </g>
-
-          <g>
-            <rect x="761" y="282" width="59" height="107" fill="#293f4a"></rect>
-            <rect x="768" y="290" width="45" height="90" fill="url(#windows)"></rect>
-            <rect x="828" y="252" width="64" height="137" fill="#263c49"></rect>
-            <rect x="835" y="260" width="50" height="119" fill="url(#smallWindows)"></rect>
-          </g>
-
-          <!-- Right-side tall glass tower -->
-          <g>
-            <path d="M926 386L931 143L943 122H979L992 143L999 386Z" fill="url(#tower)"></path>
-            <path d="M943 122H979M931 144H992" stroke="#c1d3d9" opacity=".45"></path>
-            <path d="M941 142L937 381M951 133L949 382M962 130V382M973 135L977 383M984 147L989 382" stroke="#bed3dc" opacity=".28"></path>
-            <path d="M930 181H993M930 213H994M929 245H995M928 277H996M928 309H997M927 341H998M927 372H998" stroke="#c5d6d7" opacity=".18"></path>
-            <path d="M943 122L950 115H973L979 122" fill="#9bafb4"></path>
-          </g>
-
-          <!-- Exhibition-style waterfront curve -->
-          <g>
-            <rect x="1010" y="315" width="193" height="74" fill="#213644"></rect>
-            <path d="M1002 315Q1056 257 1138 294Q1175 308 1219 301L1205 318H1002Z" fill="#839294"></path>
-            <path d="M1002 315Q1107 294 1219 301" stroke="#c7c9b7" fill="none" opacity=".7"></path>
-            <path d="M1020 331H1192M1020 343H1192M1020 355H1192M1020 367H1192" stroke="#b6c9cc" opacity=".3"></path>
-            <path d="M1040 321V384M1072 318V384M1104 316V384M1136 315V384M1168 314V384" stroke="#b6c9cc" opacity=".2"></path>
-          </g>
-
-          <!-- Promenade, water and reflections -->
-          <path d="M0 386H1240V396H0Z" fill="#142834"></path>
-          <path d="M0 391H1240" stroke="#d8c6a0" stroke-opacity=".65"></path>
-          <rect y="396" width="1240" height="109" fill="url(#harbour)"></rect>
-          <g class="water-glimmer">
-            <path d="M182 400H235L244 478H170Z" fill="url(#reflection)"></path>
-            <path d="M405 400H459L477 493H387Z" fill="url(#reflection)"></path>
-            <path d="M689 400H748L765 485H673Z" fill="url(#reflection)"></path>
-            <path d="M936 400H990L1008 495H919Z" fill="url(#reflection)"></path>
-          </g>
-          <g stroke="#b9ccc3" stroke-width="1" opacity=".18">
-            <path d="M27 413H105M176 422H241M298 408H330M399 415H465M541 426H610M690 411H752M835 419H912M943 427H1009M1102 410H1201"></path>
-            <path d="M55 447H185M264 463H322M381 449H486M578 471H666M704 442H797M863 463H989M1058 447H1194"></path>
-            <path d="M139 482H259M415 478H530M728 483H839M957 480H1085"></path>
-          </g>
-
-          <!-- A quiet harbour crossing -->
-          <g class="ferry">
-            <path d="M554 442H624L616 451H565Z" fill="#102430"></path>
-            <path d="M565 431H612V442H565Z" fill="#d4dbcf"></path>
-            <path d="M572 426H603V431H572Z" fill="#ced5c8"></path>
-            <path d="M570 435H578M582 435H590M594 435H602M606 435H610" stroke="#365958" stroke-width="3"></path>
-            <path d="M548 454H628" stroke="#bed2ca" opacity=".24"></path>
-            <path d="M587 426V418" stroke="#cbd9d3"></path>
-          </g>
-        </svg>
-
-        <div class="city-caption">
-          <div class="micro">A Hong Kong perspective</div>
-          <p>A city of connections.<br><span>A career built on them.</span></p>
-        </div>
-        <div class="city-coordinate" aria-hidden="true">
-          <strong>香港</strong>
-          HARBOUR PERSPECTIVES<br>STRATEGY IN MOTION
-        </div>
-
-        <div id="cityPins"></div>
-
-        <div class="city-hint">
-          <i aria-hidden="true"></i>
-          Choose a building or a chapter below
-        </div>
-        <div class="city-note">Illustrative skyline · Not a geographic map</div>
-      </div>
-
-      <nav class="city-index" id="cityIndex" aria-label="Profile chapters"></nav>
-    </div>
-
-    <div class="explorer-footer">
-      <span>Prefer the direct route? Open recruiter view.</span>
-      <div class="discovery">
-        <span id="discoveryText">0 of 4 perspectives explored</span>
-        <span class="discovery-track" id="discoveryTrack" aria-hidden="true"></span>
-        <button class="reset-btn" id="resetProgress">Reset</button>
-      </div>
-    </div>
-  </section>
-
-  <section class="wrap profile-strip" aria-labelledby="perspectiveTitle">
-    <div>
-      <div class="eyebrow">The professional perspective</div>
-      <h2 id="perspectiveTitle">Clarity in complexity.<br>Momentum in delivery.</h2>
-    </div>
-    <div>
-      <p>
-        My background spans <strong>Big Four consulting and work with AIA</strong>,
-        connecting strategy, operations, customer experience, and investment ESG.
-        I’m interested in the space between defining a direction and making it happen:
-        the operating models, decisions, and people that turn plans into progress.
+      <p class="intro">
+        I’m Danny, a Hong Kong–based professional working across
+        investment transformation, communication and user-centred
+        design. My career has taken me through consulting, insurance
+        and AIA Group Investment. Beyond work, you’ll find me running,
+        supporting the arts and building things for the web.
       </p>
-      <div class="capabilities">
-        <span class="chip">Strategy &amp; transformation</span>
-        <span class="chip">Programme governance</span>
-        <span class="chip">Investment ESG</span>
-        <span class="chip">Stakeholder engagement</span>
-      </div>
-    </div>
-  </section>
 
-  <section class="wrap section" id="work" aria-labelledby="workTitle">
-    <div class="section-top">
-      <div>
-        <div class="eyebrow">Selected work</div>
-        <h2 id="workTitle">Different challenges.<br>A connected approach.</h2>
-      </div>
-      <p class="section-desc">
-        A selection of engagements across operating models,
-        technology, and investment transformation.
-      </p>
-    </div>
-
-    <div class="work-grid">
-      <article class="work-card">
-        <div class="work-art">
-          <span class="art-corner">01 / OPERATING MODEL</span>
-          <svg viewBox="0 0 380 174" aria-hidden="true">
-            <g fill="none" stroke="currentColor" stroke-width="1">
-              <path d="M190 28V64M95 85H285M95 85V123M190 85V123M285 85V123" opacity=".45"></path>
-              <rect x="166" y="42" width="48" height="36" rx="4"></rect>
-              <rect x="74" y="108" width="42" height="29" rx="3" opacity=".55"></rect>
-              <rect x="169" y="108" width="42" height="29" rx="3" opacity=".55"></rect>
-              <rect x="264" y="108" width="42" height="29" rx="3" opacity=".55"></rect>
-              <circle cx="190" cy="60" r="6" fill="currentColor" fill-opacity=".1"></circle>
-              <path d="M125 123H160M220 123H255" stroke-dasharray="3 4" opacity=".4"></path>
-            </g>
-          </svg>
-          <span class="art-caption">STRUCTURE → ALIGNMENT → DELIVERY</span>
-        </div>
-        <div class="work-copy">
-          <span class="work-type">AIA Group Investment · 2021–2022</span>
-          <h3>Embedding ESG into investment processes.</h3>
-          <p>Target operating-model implementation followed by coordination of a broader investment ESG programme.</p>
-          <button class="text-link" data-project="0">
-            Explore the engagement <span aria-hidden="true">↗</span>
-          </button>
-        </div>
-      </article>
-
-      <article class="work-card">
-        <div class="work-art" style="--art-bg:#e3e9ec;--art-ink:#34566a">
-          <span class="art-corner">02 / BUSINESS × TECHNOLOGY</span>
-          <svg viewBox="0 0 380 174" aria-hidden="true">
-            <g fill="none" stroke="currentColor">
-              <rect x="87" y="36" width="124" height="91" rx="4" opacity=".35"></rect>
-              <rect x="117" y="49" width="124" height="91" rx="4" opacity=".55"></rect>
-              <rect x="148" y="62" width="124" height="91" rx="4" fill="#e3e9ec"></rect>
-              <path d="M148 82H272M160 99H215M160 109H244M160 119H226" opacity=".6"></path>
-              <circle cx="160" cy="73" r="1.5"></circle>
-              <circle cx="167" cy="73" r="1.5"></circle>
-              <path d="M283 105H306M298 98L306 105L298 112" opacity=".5"></path>
-            </g>
-          </svg>
-          <span class="art-caption">BUSINESS NEEDS → TECHNOLOGY FIT</span>
-        </div>
-        <div class="work-copy">
-          <span class="work-type">AXA Hong Kong · 2021</span>
-          <h3>Connecting business needs with technology.</h3>
-          <p>Business analysis and stakeholder facilitation within a general-insurance transformation programme.</p>
-          <button class="text-link" data-project="1">
-            Explore the engagement <span aria-hidden="true">↗</span>
-          </button>
-        </div>
-      </article>
-
-      <article class="work-card">
-        <div class="work-art" style="--art-bg:#ede7df;--art-ink:#80664b">
-          <span class="art-corner">03 / STRATEGIC ROADMAP</span>
-          <svg viewBox="0 0 380 174" aria-hidden="true">
-            <g fill="none" stroke="currentColor">
-              <path d="M69 128L146 98L224 99L308 46" stroke-width="1.3"></path>
-              <path d="M69 143V114M146 143V78M224 143V80M308 143V29" opacity=".2"></path>
-              <circle cx="69" cy="128" r="5" fill="#ede7df"></circle>
-              <circle cx="146" cy="98" r="5" fill="#ede7df"></circle>
-              <circle cx="224" cy="99" r="5" fill="#ede7df"></circle>
-              <circle cx="308" cy="46" r="7" fill="#ede7df"></circle>
-              <circle cx="308" cy="46" r="13" opacity=".2"></circle>
-              <path d="M63 62H112M63 69H92M168 43H215M168 50H193" opacity=".3"></path>
-            </g>
-          </svg>
-          <span class="art-caption">BUSINESS PRIORITIES → FUTURE STATE</span>
-        </div>
-        <div class="work-copy">
-          <span class="work-type">Global insurance client · 2018–2019</span>
-          <h3>Defining a path for technology transformation.</h3>
-          <p>A life-insurance technology roadmap connecting business priorities with future capabilities.</p>
-          <button class="text-link" data-project="2">
-            Explore the engagement <span aria-hidden="true">↗</span>
-          </button>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <section class="wrap" id="beyond" aria-labelledby="beyondTitle">
-    <div class="beyond">
-      <div class="beyond-copy">
-        <div class="eyebrow">Beyond the office</div>
-        <h2 id="beyondTitle">The city is more<br>than its skyline.</h2>
-        <p>
-          Running routes. Street-art festivals. Community projects.
-          The things I make time for outside work bring a different
-          perspective to what I do within it.
-        </p>
-        <button class="text-link" data-chapter="community">
-          Meet the person behind the profile <span class="arrow" aria-hidden="true">↗</span>
+      <div class="hero-actions">
+        <button class="button primary" id="startButton" type="button">
+          Explore my harbour →
+        </button>
+        <button class="button" id="profileButton" type="button">
+          View full profile
         </button>
       </div>
 
-      <div class="beyond-art" aria-hidden="true">
-        <svg viewBox="0 0 600 360" preserveAspectRatio="xMidYMid slice">
-          <g fill="none">
-            <path d="M-20 270C60 190 108 288 170 205S275 130 319 174S398 287 453 194S551 101 625 126" stroke="#aebeb0" stroke-width="38" opacity=".24"></path>
-            <path d="M-20 270C60 190 108 288 170 205S275 130 319 174S398 287 453 194S551 101 625 126" stroke="#316455" stroke-width="1.7" stroke-dasharray="5 7"></path>
-            <circle cx="170" cy="205" r="44" stroke="#316455" opacity=".14"></circle>
-            <circle cx="170" cy="205" r="30" stroke="#316455" opacity=".2"></circle>
-            <circle cx="319" cy="174" r="48" stroke="#316455" opacity=".12"></circle>
-            <circle cx="453" cy="194" r="32" stroke="#316455" opacity=".18"></circle>
-          </g>
-          <g fill="#e8ece5" stroke="#316455" stroke-width="1.3">
-            <circle cx="170" cy="205" r="8"></circle>
-            <circle cx="319" cy="174" r="8"></circle>
-            <circle cx="453" cy="194" r="8"></circle>
-          </g>
-          <g font-family="Arial, sans-serif" fill="#316455">
-            <text x="137" y="151" font-size="10" letter-spacing="2">MOVEMENT</text>
-            <text x="281" y="110" font-size="10" letter-spacing="2">CREATIVITY</text>
-            <text x="418" y="249" font-size="10" letter-spacing="2">COMMUNITY</text>
-          </g>
-          <path d="M87 75H119M103 59V91M497 67H515M506 58V76" stroke="#316455" opacity=".35"></path>
-        </svg>
-        <div class="beyond-art-label">Different routes. A broader perspective.</div>
+      <div class="facts" aria-label="Profile highlights">
+        <span>Hong Kong</span>
+        <span>Consulting &amp; transformation</span>
+        <span>Communication &amp; digital experience</span>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="wrap contact" id="contact" aria-labelledby="contactTitle">
-    <div>
-      <div class="eyebrow">The next connection</div>
-      <h2 id="contactTitle">Good conversations<br>lead <em>somewhere.</em></h2>
-      <p>For opportunities, collaborations, or a thoughtful exchange of ideas.</p>
-    </div>
-    <div class="contact-actions">
-      <a class="btn btn-dark" href="https://www.linkedin.com/in/dannywhli" target="_blank" rel="noopener noreferrer">
-        Connect on LinkedIn <span class="arrow" aria-hidden="true">↗</span>
-      </a>
-      <button class="btn" data-export="">
-        Export profile PDF <span class="arrow" aria-hidden="true">↓</span>
-      </button>
-    </div>
-  </section>
-</main>
+    <section class="explorer" aria-labelledby="explorerTitle">
+      <div class="section-heading">
+        <h2 id="explorerTitle">One harbour. Four perspectives.</h2>
+        <p>Choose a district below. Explore in any order.</p>
+      </div>
 
-<footer>
-  <div class="wrap footer-inner">
-    <span><strong>Danny L.</strong> · A Hong Kong perspective.</span>
-    <div class="footer-tools">
-      <span>No trackers. No external dependencies.</span>
-      <button id="saveWebsite">Save website ↓</button>
-      <a href="#top">Back to top ↑</a>
-    </div>
-  </div>
-</footer>
+      <div class="city">
+        <p class="city-caption">Hong Kong roots. A wider perspective.</p>
 
-<dialog id="profileDialog" aria-labelledby="dialogTitle">
-  <div class="dialog-top">
-    <span class="dialog-label" id="dialogLabel">Profile</span>
-    <button class="close-btn" id="closeDialog" aria-label="Close profile" autofocus="">×</button>
-  </div>
-  <div class="dialog-body" id="dialogBody"></div>
-  <div class="dialog-bottom">
-    <small id="dialogHint">A connected perspective.</small>
-    <button class="btn btn-dark" id="dialogNext">Next perspective →</button>
-  </div>
-</dialog>
+        <svg class="city-art" viewBox="0 0 1000 350" aria-hidden="true" focusable="false">
+          <defs>
+            <pattern id="windows" width="15" height="19" patternUnits="userSpaceOnUse">
+              <rect x="5" y="6" width="4" height="7" fill="#dde5d5" opacity=".55"></rect>
+            </pattern>
 
-<div class="toast" id="toast" role="status" aria-live="polite"></div>
-<article id="printProfile" aria-label="Printable professional profile"></article>
+            <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#b6cdc1"></stop>
+              <stop offset="1" stop-color="#d6e2d6"></stop>
+            </linearGradient>
+          </defs>
 
-<noscript>
-  <div class="wrap" style="padding:25px 0">
-    The skyline explorer and PDF export require JavaScript.
-    The overview and selected work remain readable.
-    You can also connect through the LinkedIn links above.
-  </div>
-</noscript>
+          <circle cx="795" cy="84" r="35" fill="#e7cbb1" opacity=".7"></circle>
 
-<script>
-"use strict";
+          <path d="M0 215L82 171L140 186L224 131L316 180L406 122
+              L490 158L579 119L680 173L762 137L872 187L948 163
+              L1000 183V285H0Z" fill="#cbd5c6"></path>
 
-/* ─────────────────────────────────────────────
-   CONTENT
-   Carried over from the preceding portfolio.
-   Review titles, dates, and descriptions before
-   publishing. Project roles are not necessarily
-   official employment titles.
-───────────────────────────────────────────── */
-const PROFILE = {
-  name: "Danny L.",
-  headline: "Strategy, transformation, and a connected perspective.",
-  location: "Hong Kong",
-  linkedin: "https://www.linkedin.com/in/dannywhli",
-  about:
-    "My background spans nearly a decade in Big Four consulting across " +
-    "strategy, operations, and customer experience, alongside work with AIA. " +
-    "My projects connect business priorities with operating models, technology, " +
-    "programme governance, and investment ESG. Outside work, I support " +
-    "Hong Kong’s street-art community, co-lead a running club, and take part " +
-    "in fundraising challenges.",
+          <g fill="#b3c4b4">
+            <path d="M24 251V193H56V251M66 251V171H95V251
+              M103 251V202H127V251M257 251V183H287V251
+              M303 251V163H329V251M518 251V189H550V251
+              M563 251V158H584V251M776 251V193H802V251
+              M876 251V178H906V251M918 251V208H955V251"></path>
+          </g>
 
-  strengths:
-    "I connect structured analysis with delivery and communication: " +
-    "understanding business needs, organising complex programmes, and " +
-    "bringing people together around a shared direction.",
+          <g>
+            <path d="M142 259V157H174V139H194V157H226V259Z" fill="#799680"></path>
+            <rect x="147" y="164" width="73" height="91" fill="url(#windows)"></rect>
+            <path d="M130 259H241M138 156H229" stroke="#446c59" stroke-width="5"></path>
+          </g>
 
-  skills: [
-    "Programme & project management",
-    "PMO & governance",
-    "Business analysis",
-    "Operating-model transformation",
-    "Stakeholder facilitation",
-    "Investment ESG delivery",
-    "Customer experience",
-    "Technology roadmaps",
-    "Event planning & emceeing"
-  ],
+          <g>
+            <path d="M353 259V97L375 79H410L432 97V259Z" fill="#567d6b"></path>
+            <path d="M366 109H420V254H366Z" fill="url(#windows)"></path>
+            <path d="M378 82V57M391 79V48M404 82V57" stroke="#567d6b" stroke-width="3"></path>
+            <path d="M349 260H438" stroke="#345b4d" stroke-width="5"></path>
+          </g>
 
-  education: [
-    {
-      title: "Brunel University",
-      meta: "Education",
-      detail: "Uxbridge, West London."
-    }
-  ],
+          <g>
+            <path d="M607 259V121L635 86L665 121V259Z" fill="#72927c"></path>
+            <path d="M665 259V157L700 122V259Z" fill="#456e5d"></path>
+            <path d="M612 125L660 170L612 214M660 125L613 170L660 214" fill="none" stroke="#d5dfce" stroke-width="2"></path>
+            <path d="M672 169H692M672 189H692M672 209H692M672 229H692" stroke="#a9c0a8" stroke-width="3"></path>
+            <path d="M635 88V61" stroke="#456e5d" stroke-width="3"></path>
+          </g>
 
-  experience: [
-    {
-      title: "Strategy & operating-model transformation",
-      meta: "Selected consulting work",
-      detail:
-        "Contributed to insurance technology roadmaps, customer-experience " +
-        "research, procurement transformation, and business-process improvement. " +
-        "The common thread: understanding the current state and helping " +
-        "define a practical path forward."
-    },
-    {
-      title: "Programme delivery & governance",
-      meta: "Selected project responsibilities",
-      detail:
-        "Experience across PMO, project management, and programme coordination: " +
-        "tracking milestones, surfacing risks, supporting governance, and " +
-        "connecting stakeholders across business and technology."
-    },
-    {
-      title: "Investment ESG transformation",
-      meta: "AIA Group Investment ESG project · April 2021–October 2022",
-      detail:
-        "Project Manager responsibilities in 2021 covered implementation of " +
-        "an ESG Target Operating Model and oversight of six workstreams.\n\n" +
-        "Programme/Project Manager responsibilities in 2022 included " +
-        "coordinating six projects addressing investment ESG and the " +
-        "implications of net-zero commitments."
-    },
-    {
-      title: "Business analysis & technology enablement",
-      meta: "Selected engagements",
-      detail:
-        "Work included stakeholder interviews, requirements definition, " +
-        "current- and future-state analysis, ERP validation and UAT, " +
-        "process mapping, and interface wireframes."
-    }
-  ],
+          <g>
+            <path d="M826 261V217H895V261" fill="#829d81"></path>
+            <path d="M815 218L861 180L908 218Z" fill="#b36c52"></path>
+            <path d="M842 261V237H855V261M869 261V237H882V261" fill="#dbe3d0"></path>
+            <path d="M803 261V229M923 261V224" stroke="#5c7761" stroke-width="5"></path>
+            <circle cx="803" cy="218" r="17" fill="#89a180"></circle>
+            <circle cx="923" cy="213" r="20" fill="#89a180"></circle>
+          </g>
 
-  projects: [
-    {
-      title: "Embedding ESG into investment processes",
-      meta: "AIA Group Investment · April 2021–October 2022",
-      detail:
-        "Managed implementation of an ESG Target Operating Model before " +
-        "coordinating a broader programme. Work covered ownership, research, " +
-        "stewardship, policies, technology and data, and communication and training.\n\n" +
-        "Programme focus areas included Net-Zero & SBTi, sustainability indexes, " +
-        "stewardship, and reporting."
-    },
-    {
-      title: "Connecting business needs with insurance technology",
-      meta: "AXA Hong Kong · January–April 2021",
-      detail:
-        "As Business Analyst Lead on a general-insurance transformation " +
-        "programme, assessed business-model requirements and technology fit, " +
-        "including Guidewire.\n\n" +
-        "Facilitated stakeholder discussions and supported analysis across " +
-        "customers and products, claims servicing, financial and business " +
-        "continuity management, and integration."
-    },
-    {
-      title: "Building a life-insurance technology roadmap",
-      meta: "Global insurance client · September 2018–March 2019",
-      detail:
-        "Helped develop a technology roadmap aligned with business priorities. " +
-        "Strategic objectives included improving customer and distributor " +
-        "experience, shortening product time-to-market, enabling direct-selling " +
-        "opportunities, and supporting scalable architecture for the Greater Bay Area."
-    },
-    {
-      title: "Refreshing the AIA Investments web presence",
-      meta: "AIA Investments · September 2024",
-      detail:
-        "Reviewed and redesigned the Investments section of AIA’s About Us " +
-        "webpage, updating information and incorporating refined branding."
-    },
-    {
-      title: "Bringing an investment community together",
-      meta: "AIA Investments conference · Shanghai",
-      detail:
-        "Shaped the agenda and emceed a two-day conference connecting senior " +
-        "investment leaders across markets and asset classes.\n\n" +
-        "The theme: Empower People · Unlock Scale · Drive Innovation."
-    },
-    {
-      title: "Creating space for the next generation",
-      meta: "AIA Group Investment internship programme",
-      detail:
-        "Facilitated a meet-and-greet between investment interns and senior " +
-        "leadership in Hong Kong for a second year, creating space for " +
-        "conversations about career journeys, investing perspectives, and learning."
-    }
-  ],
+          <path d="M0 264H1000" stroke="#5e816c" stroke-width="7"></path>
+          <path d="M0 272H1000V350H0Z" fill="url(#water)"></path>
 
-  certifications: [
-    {
-      title: "Sustainability Strategies",
-      meta: "LinkedIn · April 2022"
-    },
-    {
-      title: "The Fundamentals of Digital Marketing",
-      meta: "Google Digital Garage · March 2022"
-    },
-    {
-      title: "Microsoft Project 2019 and Project Online Desktop Essential Training",
-      meta: "LinkedIn · December 2020"
-    },
-    {
-      title: "Introduction to User Experience Design",
-      meta: "Coursera · January 2019"
-    },
-    {
-      title: "Build Your Own Chatbot",
-      meta: "Cognitive Class · IBM Initiative · October 2018"
-    },
-    {
-      title: "HTML Fundamentals, CSS Fundamentals & JavaScript Course",
-      meta: "SoloLearn · February 2017"
-    }
-  ],
+          <g stroke="#edf1e5" stroke-width="2" opacity=".7">
+            <path d="M38 299H175M216 319H359M410 291H509
+              M602 325H737M773 302H940"></path>
+            <path d="M81 331H137M293 290H342M522 340H613M854 332H984"></path>
+          </g>
 
-  awards: [
-    {
-      title: "C&O MORE!",
-      meta: "May 2020",
-      detail: "Recognition for performance and contributions to the Customer & Operations team."
-    },
-    {
-      title: "Bravo Prize · Individual Award",
-      meta: "KPMG · February 2019",
-      detail:
-        "Recognition for contribution, initiative, and commitment on an " +
-        "insurance strategy and technology engagement."
-    },
-    {
-      title: "Standing Ovation Prize · Team Award",
-      meta: "KPMG · November 2018",
-      detail:
-        "Team recognition for cross-border collaboration and delivery on Project Halley."
-    },
-    {
-      title: "Chairmen’s Award · CSR",
-      meta: "KPMG Foundation · October 2018",
-      detail: "Recognition for commitment to community and social causes."
-    },
-    {
-      title: "Impact Award · Individual Project Recognition",
-      meta: "Deloitte China · November 2015",
-      detail:
-        "Recognition for teamwork, commitment, and contributions beyond the assigned role."
-    }
-  ],
+          <g class="boat">
+            <path d="M467 310H543L534 322H479Z" fill="#456e5d"></path>
+            <path d="M482 294H526V310H482Z" fill="#f4f0df"></path>
+            <path d="M487 288H520V294H487Z" fill="#b36c52"></path>
+            <path d="M488 300H495M500 300H507M512 300H519" stroke="#6e9681" stroke-width="4"></path>
+          </g>
+        </svg>
 
-  community: [
-    {
-      title: "Movement & well-being",
-      meta: "AIA Group Office Running Club · Co-lead · Started June 2024",
-      detail:
-        "Organised professional and casual running sessions, fitness challenges, " +
-        "and activities supporting employee well-being.\n\n" +
-        "Raised over HK$6,500 for Kids with Cancer Foundation while " +
-        "participating in the Sydney Marathon."
-    },
-    {
-      title: "Creativity in the city",
-      meta: "HKWALLS · Festival volunteer · First participated in March 2017",
-      detail:
-        "Supported artists and organisers across festival editions and " +
-        "exhibitions in Hong Kong, including Wong Chuk Hang, Central/Sheung Wan, " +
-        "Wan Chai, Sai Kung, and the disCONNECT exhibition.\n\n" +
-        "A place where creativity, community, and hands-on problem-solving meet."
-    },
-    {
-      title: "A challenge with purpose",
-      meta: "Moontrekker · Supporting The Nature Conservancy",
-      detail:
-        "Participated in the Moonlit 30 Solo challenge in 2019, 2023, and 2024, " +
-        "raising over HK$5,000 for the charity event."
-    },
-    {
-      title: "Helping young voices be heard",
-      meta: "Plan International Hong Kong · August–September 2018",
-      detail:
-        "Facilitated workshops through KPMG to help secondary-school students " +
-        "explore development issues and prepare for the Youth Conference.\n\n" +
-        "The two student teams earned Champion and First Runner-up in " +
-        "the Secondary Division – English."
-    },
-    {
-      title: "Supporting animal welfare",
-      meta: "Hong Kong Dog Rescue · July 2014–July 2015",
-      detail: "Volunteered as a dog walker in support of animal welfare."
-    },
-    {
-      title: "From meeting room to main stage",
-      meta: "AIA Group Annual Dinner · February 2025",
-      detail:
-        "Co-emceed the annual dinner, working with cross-functional teams " +
-        "and a professional emcee to deliver the event."
-    }
-  ]
-};
+        <div class="districts" id="districts"></div>
+      </div>
 
-const CHAPTERS = [
-  {
-    id: "about",
-    label: "The Foundation",
-    heading: "The perspective behind the work.",
-    description: "Background & recognition",
-    x: 17, y: 40, mobileY: 44
-  },
-  {
-    id: "experience",
-    label: "Strategy & Delivery",
-    heading: "Clarity in complexity.",
-    description: "Experience & capabilities",
-    x: 35, y: 26, mobileY: 34
-  },
-  {
-    id: "projects",
-    label: "Selected Work",
-    heading: "Turning direction into delivery.",
-    description: "Engagements & leadership",
-    x: 58, y: 43, mobileY: 45
-  },
-  {
-    id: "community",
-    label: "Beyond the Office",
-    heading: "A broader perspective.",
-    description: "Creativity & community",
-    x: 78, y: 31, mobileY: 35
-  }
-];
+      <div class="explorer-footer">
+        <span id="progressText">0 of 4 districts explored</span>
 
-/* UTILITIES */
-const $ = id => document.getElementById(id);
-const dialog = $("profileDialog");
-const storageKey = "danny-harbour-profile-v2";
-const visited = new Set();
-let currentView = { type: "full" };
-let lastTrigger = null;
-let toastTimer;
+        <div class="explorer-controls">
+          <button class="text-button" id="motionButton" type="button" aria-pressed="false">Pause animation</button>
 
-function escapeHTML(value) {
-  return String(value).replace(/[&<>"']/g, character => ({
-    "&": "&amp;", "<": "&lt;", ">": "&gt;",
-    '"': "&quot;", "'": "&#39;"
-  })[character]);
-}
+          <button class="text-button" id="resetButton" type="button">
+            Reset passport
+          </button>
+        </div>
+      </div>
+    </section>
 
-function detailCard(item) {
-  return `
-    <div class="detail-card">
-      <h4>${escapeHTML(item.title)}</h4>
-      ${item.meta ? `<div class="detail-meta">${escapeHTML(item.meta)}</div>` : ""}
-      ${item.detail ? `<p>${escapeHTML(item.detail)}</p>` : ""}
-    </div>`;
-}
+    <section class="passport" aria-labelledby="passportTitle">
+      <div>
+        <p class="eyebrow">Your Harbour Passport</p>
+        <h2 id="passportTitle">Four stops. A fuller picture.</h2>
 
-function cards(items) { return items.map(detailCard).join(""); }
-function chips(items) {
-  return `<div class="capabilities">${items.map(item =>
-    `<span class="chip">${escapeHTML(item)}</span>`
-  ).join("")}</div>`;
-}
-function subheading(text) {
-  return `<h3 class="content-section-title">${escapeHTML(text)}</h3>`;
-}
+        <p class="passport-status" id="passportStatus" role="status" aria-live="polite" aria-atomic="true"></p>
 
-/* CONTENT VIEWS */
-function chapterContent(id) {
-  switch (id) {
-    case "about":
-      return `
-        <p class="lead">${escapeHTML(PROFILE.about)}</p>
-        ${subheading("Education")}
-        ${cards(PROFILE.education)}
-        ${subheading("Selected recognition")}
-        ${cards(PROFILE.awards)}`;
+        <ul class="stamps" id="stamps" aria-label="District stamps"></ul>
+      </div>
 
-    case "experience":
-      return `
-        <p class="lead">${escapeHTML(PROFILE.strengths)}</p>
-        ${chips(PROFILE.skills)}
-        ${subheading("Selected experience")}
-        ${cards(PROFILE.experience)}
-        ${subheading("Learning & development")}
-        ${cards(PROFILE.certifications)}`;
+      <div class="passport-action">
+        <button class="button primary" id="passportNext" type="button">
+          Start exploring →
+        </button>
+        <small>
+          Collect all four stamps to reveal the design notes.
+          All career details are available without completing the tour.
+        </small>
+      </div>
+    </section>
 
-    case "projects":
-      return `
-        <p class="lead">
-          Selected transformation engagements, digital work,
-          and opportunities to bring people together.
+    <section class="contact" id="contact" aria-labelledby="contactTitle">
+      <div>
+        <h2 id="contactTitle">Let’s start a conversation.</h2>
+        <p>
+          Transformation, communication, digital experiences —
+          or a good running route.
         </p>
-        ${cards(PROFILE.projects)}`;
+      </div>
 
-    case "community":
-      return `
-        <p class="lead">
-          Not everything meaningful happens in a meeting room.
-          These are the communities and challenges I make time for.
-        </p>
-        ${chips(["Running & well-being", "Street art", "Fundraising",
-          "Youth empowerment", "Animal welfare"])}
-        ${cards(PROFILE.community)}`;
+      <div class="contact-links">
+        <a class="button primary" href="mailto:dannywhli@gmail.com">
+          Email Danny ↗
+        </a>
+        <a class="button" href="https://www.linkedin.com/in/dannywhli" target="_blank" rel="noopener noreferrer" aria-label="Danny Li on LinkedIn, opens in a new tab">LinkedIn ↗</a>
+      </div>
+    </section>
+  </main>
 
-    default:
-      return "";
-  }
-}
+  <footer class="site-footer shell">
+    <p>Danny Li · Hong Kong<br>A harbour of perspectives.</p>
+    <p>
+      A personal portfolio, not an official AIA website.
+      Passport progress is saved in your browser when available.
+      No analytics or tracking scripts are included.
+    </p>
+  </footer>
 
-function fullProfile(printing = false) {
-  const title = printing
-    ? `<h1>${escapeHTML(PROFILE.name)}</h1>`
-    : `<h2 id="dialogTitle">${escapeHTML(PROFILE.name)}</h2>`;
-
-  return `
-    <div class="full-profile-header">
-      ${title}
-      <p>${escapeHTML(PROFILE.headline)}<br>${escapeHTML(PROFILE.location)}</p>
-      <a href="${escapeHTML(PROFILE.linkedin)}"
-        target="_blank" rel="noopener noreferrer">
-        linkedin.com/in/dannywhli
-      </a>
+  <dialog id="profileDialog" aria-labelledby="dialogTitle">
+    <div class="dialog-header">
+      <span class="dialog-label" id="dialogLabel"></span>
+      <button class="close-button" id="closeDialog" type="button" aria-label="Close profile" autofocus="">×</button>
     </div>
-    ${CHAPTERS.map(chapter => `
-      <section class="profile-chapter">
-        <h2>${escapeHTML(chapter.label)}</h2>
-        ${chapterContent(chapter.id)}
-      </section>
-    `).join("")}`;
-}
 
-/* SKYLINE NAVIGATION */
-function buildExplorer() {
-  $("cityPins").innerHTML = CHAPTERS.map((chapter, index) => `
-    <button
-      class="city-pin"
-      id="pin-${chapter.id}"
-      data-chapter="${chapter.id}"
-      style="--x:${chapter.x}%;--y:${chapter.y}%;--mobile-y:${chapter.mobileY}%"
-      aria-label="Explore ${escapeHTML(chapter.label)}"
-      aria-haspopup="dialog">
-      <span class="pin-label">
-        <small aria-hidden="true">0${index + 1}</small>
-        <span class="pin-name">${escapeHTML(chapter.label)}</span>
-      </span>
-      <span class="pin-line" aria-hidden="true"></span>
-      <span class="pin-dot" aria-hidden="true"></span>
-    </button>
-  `).join("");
+    <div class="dialog-body" id="dialogBody"></div>
 
-  $("cityIndex").innerHTML = CHAPTERS.map((chapter, index) => `
-    <button class="city-index-btn" id="index-${chapter.id}"
-      data-chapter="${chapter.id}" aria-haspopup="dialog">
-      <span class="index-top">
-        <span>Perspective 0${index + 1}</span>
-        <span class="index-state" aria-hidden="true"></span>
-      </span>
-      <strong>${escapeHTML(chapter.label)}</strong>
-      <span class="description">${escapeHTML(chapter.description)}</span>
-      <span class="index-arrow" aria-hidden="true">↗</span>
-    </button>
-  `).join("");
-}
+    <div class="dialog-footer">
+      <small id="dialogHint"></small>
+      <button class="button primary" id="dialogNext" type="button"></button>
+    </div>
+  </dialog>
 
-function loadProgress() {
-  try {
-    const saved = JSON.parse(localStorage.getItem(storageKey) || "[]");
-    if (Array.isArray(saved)) {
-      saved.forEach(id => {
-        if (CHAPTERS.some(chapter => chapter.id === id)) visited.add(id);
+  <article class="print-profile" id="printProfile" aria-label="Printable profile"></article>
+
+  <noscript>
+    <section class="shell">
+      <h2>About Danny</h2>
+      <p>
+        Danny Li is Manager, Group CIO Office at AIA Group,
+        with experience at KPMG, AXA Hong Kong and Deloitte.
+        His work spans investment transformation, programme
+        management, executive communication and user-centred design.
+      </p>
+      <p>
+        Enable JavaScript to explore the interactive profile, or
+        <a href="https://www.linkedin.com/in/dannywhli">
+          view Danny’s LinkedIn profile
+        </a>.
+      </p>
+    </section>
+  </noscript>
+
+  <script>
+    "use strict";
+
+    /*
+      Content is based on Danny's supplied CV and LinkedIn text.
+      Employment titles and dates follow the CV.
+      Do not add confidential client information or unverified metrics.
+    */
+
+    const PROFILE = {
+      name: "Danny Wing Ho Li",
+      role: "Manager, Group CIO Office",
+      organisation: "AIA Group",
+      location: "Hong Kong",
+      email: "dannywhli@gmail.com",
+      linkedin: "https://www.linkedin.com/in/dannywhli",
+
+      summary:
+        "A Hong Kong–based professional with experience spanning " +
+        "consulting, insurance and investment transformation. " +
+        "I combine programme delivery and business analysis with " +
+        "executive communication, visual storytelling and " +
+        "user-centred digital design.",
+
+      chapters: [
+        {
+          id: "foundations",
+          district: "Foundations",
+          label: "My story & strengths",
+          title: "A business foundation. A creative approach.",
+          summary:
+            "From finance and accounting to consulting and investment " +
+            "transformation, my work connects business needs with the " +
+            "people, processes and digital experiences that support them.",
+          cards: [
+            {
+              title: "Connecting strategy with delivery",
+              text:
+                "My career began at Deloitte in 2012 and has since " +
+                "included roles at AXA Hong Kong, KPMG and AIA Group. " +
+                "Across these settings, I have worked on business " +
+                "processes, technology roadmaps, operating models " +
+                "and transformation programmes."
+            },
+            {
+              title: "Making complex information easier to use",
+              text:
+                "I develop executive presentations, programme updates, " +
+                "communication materials and training initiatives. " +
+                "My approach combines structured analysis with visual " +
+                "communication to support understanding and discussion."
+            },
+            {
+              title: "Designing around people",
+              text:
+                "My experience includes wireframes, user flows, " +
+                "claims journeys, SharePoint portals and external " +
+                "websites. I use business requirements and " +
+                "user-centred design principles to shape practical " +
+                "digital experiences."
+            },
+            {
+              title: "Brunel University",
+              meta: "London, UK · October 2008 – July 2011",
+              text: "BSc (Hons) Finance & Accounting · Upper Second-Class Honours (2:1)."
+            },
+            {
+              title: "Wellington School",
+              meta: "Somerset, UK · September 2006 – June 2008",
+              text:
+                "Education in the UK before beginning my degree " +
+                "at Brunel University."
+            },
+            {
+              title: "Languages",
+              text: "Native English. Proficient spoken Cantonese."
+            },
+            {
+              title: "Selected learning",
+              text:
+                "Sustainability Strategies — LinkedIn, April 2022.\n" +
+                "The Fundamentals of Digital Marketing — Google Digital Garage, March 2022.\n" +
+                "Introduction to User Experience Design — Coursera, January 2019.\n" +
+                "Build Your Own Chatbot — Cognitive Class / IBM initiative, October 2018.\n" +
+                "HTML, CSS and JavaScript course certificates — SoloLearn, February 2017."
+            }
+          ]
+        },
+
+        {
+          id: "business",
+          district: "Business District",
+          label: "Career & experience",
+          title: "From consulting to investment transformation.",
+          summary:
+            "Experience across programme management, business analysis, " +
+            "operating models and stakeholder communication — " +
+            "with roles in consulting and insurance.",
+          cards: [
+            {
+              title: "AIA Group · Manager, Group CIO Office",
+              meta: "September 2022 – Present",
+              text:
+                "Track and monitor delivery of AIA Investments’ target " +
+                "operating model across the investment programme.\n\n" +
+                "Design communication and training initiatives across " +
+                "Group Investment, Asset Management Companies and " +
+                "Business Unit Investment functions.\n\n" +
+                "Develop presentation materials for executive discussions " +
+                "among investment management, Asset Management CEOs " +
+                "and Business Unit CIOs/CEOs.\n\n" +
+                "Lead UX design and maintenance of internal SharePoint " +
+                "portals and external-facing websites."
+            },
+            {
+              title: "AIA Group · Project/Programme Manager",
+              meta: "April 2021 – September 2022 · External consultant",
+              text:
+                "Managed an investment-led ESG initiative to embed ESG " +
+                "considerations into the investment process using " +
+                "AIA’s group-wide governance framework.\n\n" +
+                "Coordinated requirements, scope, deliverables and " +
+                "stakeholder relationships across business lines " +
+                "and external parties. Reported progress and supported " +
+                "programme governance and executive communication."
+            },
+            {
+              title: "AXA Hong Kong · Business Analyst Lead",
+              meta: "January 2021 – April 2021 · Contractor through Hays",
+              text:
+                "Supported a general insurance transformation programme " +
+                "for a digital, omnichannel property and casualty platform.\n\n" +
+                "Assessed technology fit, including Guidewire, and " +
+                "facilitated requirements discussions across customer, " +
+                "claims and integration workstreams."
+            },
+            {
+              title: "KPMG Advisory · Manager, Customer & Operations",
+              meta: "March 2018 – September 2020 · Management Consulting",
+              text:
+                "Delivered work across IFRS 17 implementation PMO, " +
+                "life insurance IT strategy, procurement transformation " +
+                "and customer experience research.\n\n" +
+                "Developed technology roadmaps, coordinated programme " +
+                "resources and risks, and co-authored a localised " +
+                "Customer Experience Excellence study.\n\n" +
+                "Contributed to winning proposals for an insurer’s " +
+                "loyalty programme and a global bank’s operating " +
+                "model review."
+            },
+            {
+              title: "AXA Hong Kong · Senior Business Analyst",
+              meta: "April 2017 – March 2018 · Operational Excellence",
+              text:
+                "Led requirements gathering and solution design for " +
+                "a new claims processing system within the Health " +
+                "Claims Transformation Programme.\n\n" +
+                "Explored automation and OCR solutions, supported a " +
+                "life-product pilot, and used customer feedback and " +
+                "journey analysis to redesign claims interactions."
+            },
+            {
+              title: "Deloitte Advisory · Consultant",
+              meta: "January 2012 – April 2017",
+              text:
+                "Worked across project monitoring, government process " +
+                "reviews, CRM assessment, financial-system data migration " +
+                "and inventory-system requirements.\n\n" +
+                "Assessed CRM capabilities across 10 global markets, " +
+                "supported ERP integration and user walkthroughs, " +
+                "and produced wireframes, storyboards and process flows " +
+                "for system development."
+            },
+            {
+              title: "Selected recognition",
+              text:
+                "KPMG C&O MORE! recognition — May 2020.\n" +
+                "KPMG Bravo Prize, individual award — February 2019.\n" +
+                "KPMG Standing Ovation Prize, team award — November 2018.\n" +
+                "KPMG Foundation Chairmen’s Award, CSR — October 2018.\n" +
+                "Deloitte China Impact Award — November 2015."
+            }
+          ]
+        },
+
+        {
+          id: "innovation",
+          district: "Innovation Quarter",
+          label: "Projects & making",
+          title: "Structured thinking. Tangible work.",
+          summary:
+            "Selected examples of programme delivery, business analysis, " +
+            "digital design and creative experimentation.",
+          cards: [
+            {
+              title: "Investment ESG programme",
+              meta: "AIA Group Investment · April 2021 – October 2022",
+              text:
+                "Managed implementation of an ESG target operating model " +
+                "covering ownership, research, stewardship, standards, " +
+                "data and technology, and communication.\n\n" +
+                "As the work developed into a programme, coordinated " +
+                "six projects addressing areas including Net-Zero " +
+                "and SBTi, sustainability indexes, stewardship " +
+                "and reporting."
+            },
+            {
+              title: "AIA Investments webpage",
+              meta: "September 2024",
+              text:
+                "Reviewed and redesigned the AIA Investments section " +
+                "of AIA’s About Us website, updating its information " +
+                "and applying the refined branding."
+            },
+            {
+              title: "Life insurance IT strategy & roadmap",
+              meta: "September 2018 – March 2019",
+              text:
+                "Developed a roadmap addressing product time-to-market, " +
+                "distributor and customer experience, direct selling " +
+                "and a scalable architecture for the Greater Bay Area.\n\n" +
+                "Combined stakeholder interviews, business priorities " +
+                "and technology assessment to shape recommendations."
+            },
+            {
+              title: "Customer Experience Excellence study",
+              meta: "Hong Kong · August 2019 – December 2019",
+              text:
+                "Contributed research and writing to a localised study " +
+                "of how major brands deliver customer experience " +
+                "across six pillars.\n\n" +
+                "Used the findings in insight-led discussions " +
+                "with prospective clients."
+            },
+            {
+              title: "Investment leadership conference",
+              meta: "AIA Investments · Shanghai",
+              text:
+                "Shaped the agenda and emceed a two-day conference " +
+                "bringing together the investment community across " +
+                "the Group.\n\n" +
+                "The programme connected senior investment leaders " +
+                "across markets and asset classes around people, " +
+                "scale and innovation."
+            },
+            {
+              title: "Harbour Days · 海港日常",
+              meta: "Personal browser-game prototype · October 2026",
+              text:
+                "Created a Hong Kong–inspired browser-game prototype " +
+                "with neighbourhood exploration, lychee harvesting, " +
+                "fishing, market trading and home upgrades.\n\n" +
+                "Published the project using GitHub Pages and resolved " +
+                "an entry-page filename issue during deployment."
+            }
+          ]
+        },
+
+        {
+          id: "community",
+          district: "Community Waterfront",
+          label: "Running, arts & people",
+          title: "There’s more to the story than work.",
+          summary:
+            "Running, volunteering, the arts and shared experiences " +
+            "are another part of who I am.",
+          cards: [
+            {
+              title: "AIA Group Office Running Club",
+              meta: "Co-lead · Since June 2024",
+              text:
+                "Help organise professional and casual running " +
+                "sessions, fitness challenges and activities " +
+                "to support employee well-being.\n\n" +
+                "Raised over HK$6,500 for Kids with Cancer Foundation " +
+                "while participating in the Sydney Marathon."
+            },
+            {
+              title: "HKWALLS",
+              meta: "Festival volunteer · Since March 2017",
+              text:
+                "Support Hong Kong’s street-art community through " +
+                "festival assistance and coordination with artists " +
+                "and organisers.\n\n" +
+                "Participation has included Wong Chuk Hang, " +
+                "Central and Sheung Wan, Wan Chai, Sai Kung, " +
+                "and the disCONNECT exhibition with Schoeni Projects."
+            },
+            {
+              title: "Moontrekker & The Nature Conservancy",
+              meta: "Fundraising · 2019, 2023 and 2024",
+              text:
+                "Participated in the Moonlit 30 Solo challenge and " +
+                "raised over HK$5,000 for The Nature Conservancy."
+            },
+            {
+              title: "Plan International Hong Kong",
+              meta: "Workshop facilitator through KPMG · August – September 2018",
+              text:
+                "Helped secondary-school students explore development " +
+                "issues and prepare for the Youth Conference 2018.\n\n" +
+                "The two student teams achieved Champion and " +
+                "First Runner-up in the Secondary Division " +
+                "English category."
+            },
+            {
+              title: "Bringing people together",
+              text:
+                "Co-emceed AIA Group’s annual dinner in February 2025, " +
+                "working with cross-functional teams and a professional emcee.\n\n" +
+                "Also facilitated a meet-and-greet connecting Group " +
+                "Investment interns with senior leadership in Hong Kong."
+            },
+            {
+              title: "Hong Kong Dog Rescue",
+              meta: "Volunteer dog walker · July 2014 – July 2015",
+              text:
+                "Volunteered as a dog walker in support of " +
+                "Hong Kong Dog Rescue."
+            }
+          ]
+        }
+      ]
+    };
+
+    const $ = id => document.getElementById(id);
+    const chapters = PROFILE.chapters;
+    const storageKey = "danny-li-harbour-passport-v1";
+    const validIds = new Set(chapters.map(chapter => chapter.id));
+
+    const escapeHTML = value => String(value).replace(
+      /[&<>"']/g,
+      character => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+      })[character]
+    );
+
+    let storageAvailable = true;
+    let currentView = "profile";
+
+    function loadVisited() {
+      try {
+        const saved = JSON.parse(
+          localStorage.getItem(storageKey) || "[]"
+        );
+
+        return new Set(
+          Array.isArray(saved)
+            ? saved.filter(id => validIds.has(id))
+            : []
+        );
+      } catch {
+        storageAvailable = false;
+        return new Set();
+      }
+    }
+
+    let visited = loadVisited();
+
+    function saveVisited() {
+      try {
+        localStorage.setItem(storageKey, JSON.stringify([...visited]));
+        storageAvailable = true;
+      } catch {
+        storageAvailable = false;
+      }
+    }
+
+    function cardHTML(card, heading = "h3") {
+      return `
+        <article class="content-card">
+          <${heading}>${escapeHTML(card.title)}</${heading}>
+          ${card.meta
+            ? `<p class="card-meta">${escapeHTML(card.meta)}</p>`
+            : ""}
+          <p class="card-text">${escapeHTML(card.text)}</p>
+        </article>
+      `;
+    }
+
+    function renderCards(cards, heading = "h3") {
+      return cards.map(card => cardHTML(card, heading)).join("");
+    }
+
+    function nextUnvisited() {
+      return chapters.find(chapter => !visited.has(chapter.id));
+    }
+
+    function renderProgress() {
+      const complete = visited.size === chapters.length;
+      const next = nextUnvisited();
+
+      $("progressText").textContent =
+        `${visited.size} of ${chapters.length} districts explored`;
+
+      chapters.forEach(chapter => {
+        const button = document.querySelector(
+          `[data-chapter="${chapter.id}"]`
+        );
+        const earned = visited.has(chapter.id);
+
+        button.classList.toggle("visited", earned);
+        button.querySelector(".district-check").textContent =
+          earned ? "✓" : "↗";
+
+        button.setAttribute(
+          "aria-label",
+          `${chapter.district}: ${chapter.label}. ` +
+          (earned ? "Stamp collected." : "Not yet explored.")
+        );
+      });
+
+      $("stamps").innerHTML = chapters.map(chapter => {
+        const earned = visited.has(chapter.id);
+
+        return `
+          <li
+            class="stamp ${earned ? "earned" : ""}"
+            aria-label="${escapeHTML(chapter.district)}:
+              ${earned ? "collected" : "not yet collected"}"
+          >
+            <span aria-hidden="true">${earned ? "✓" : "○"}</span>
+            ${escapeHTML(chapter.district)}
+          </li>
+        `;
+      }).join("");
+
+      $("passportStatus").textContent = complete
+        ? "Passport complete. Your behind-the-design notes are unlocked."
+        : `Next stop: ${next.district}. Or choose any district above.`;
+
+      $("passportNext").textContent = complete
+        ? "Behind the design ↗"
+        : visited.size
+          ? `Next: ${next.label} →`
+          : "Start exploring →";
+
+      $("startButton").textContent = complete
+        ? "Revisit my harbour →"
+        : visited.size
+          ? "Continue exploring →"
+          : "Explore my harbour →";
+    }
+
+    function setDialog({ label, title, body, hint, action }) {
+      $("dialogLabel").textContent = label;
+
+      $("dialogBody").innerHTML =
+        `<h2 id="dialogTitle">${escapeHTML(title)}</h2>${body}`;
+
+      $("dialogHint").textContent = hint;
+      $("dialogNext").textContent = action;
+
+      const dialog = $("profileDialog");
+
+      if (!dialog.open) {
+        dialog.showModal();
+        document.body.style.overflow = "hidden";
+      }
+
+      dialog.scrollTop = 0;
+      $("closeDialog").focus({ preventScroll: true });
+    }
+
+    function openChapter(id) {
+      const index = chapters.findIndex(chapter => chapter.id === id);
+      if (index < 0) return;
+
+      const chapter = chapters[index];
+
+      visited.add(id);
+      saveVisited();
+      renderProgress();
+      currentView = "chapter";
+
+      const next = nextUnvisited();
+
+      setDialog({
+        label:
+          `District ${String(index + 1).padStart(2, "0")} / ` +
+          chapter.district,
+        title: chapter.title,
+        body:
+          `<p class="lead">${escapeHTML(chapter.summary)}</p>` +
+          renderCards(chapter.cards),
+        hint:
+          `${visited.size} of 4 stamps collected · ` +
+          (storageAvailable
+            ? "Progress saved in this browser"
+            : "Progress lasts for this visit"),
+        action: next
+          ? `Next: ${next.label} →`
+          : "Behind the design ↗"
       });
     }
-  } catch (_) {}
-}
 
-function saveProgress() {
-  try {
-    localStorage.setItem(storageKey, JSON.stringify([...visited]));
-  } catch (_) {}
-}
+    function openProfile() {
+      currentView = "profile";
 
-function updateProgress() {
-  CHAPTERS.forEach(chapter => {
-    const done = visited.has(chapter.id);
-    const pin = $(`pin-${chapter.id}`);
-    const index = $(`index-${chapter.id}`);
+      const sections = chapters.map(chapter => `
+        <section class="profile-section">
+          <h3>${escapeHTML(chapter.label)}</h3>
+          <p>${escapeHTML(chapter.summary)}</p>
+          ${renderCards(chapter.cards, "h4")}
+        </section>
+      `).join("");
 
-    pin.classList.toggle("visited", done);
-    index.classList.toggle("visited", done);
-    index.querySelector(".index-state").textContent = done ? "Viewed ✓" : "";
-    const label = `${chapter.label}${done ? ", explored" : ""}`;
-    pin.setAttribute("aria-label", `Explore ${label}`);
-    index.setAttribute("aria-label", `${label}: ${chapter.description}`);
-  });
+      setDialog({
+        label: "Recruiter view / Full profile",
+        title: PROFILE.name,
+        body: `
+          <p class="lead">${escapeHTML(PROFILE.role)} ·
+            ${escapeHTML(PROFILE.organisation)}
+${escapeHTML(PROFILE.location)}</p>
 
-  $("discoveryText").textContent =
-    `${visited.size} of ${CHAPTERS.length} perspectives explored`;
+          <p class="lead">${escapeHTML(PROFILE.summary)}</p>
 
-  $("discoveryTrack").innerHTML = CHAPTERS.map(chapter =>
-    `<span class="${visited.has(chapter.id) ? "complete" : ""}"></span>`
-  ).join("");
-}
+          <div class="contact-links">
+            <a class="button" href="mailto:${PROFILE.email}">
+              Email Danny ↗
+            </a>
+            <a
+              class="button"
+              href="${PROFILE.linkedin}"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn, opens in a new tab"
+            >LinkedIn ↗</a>
+          </div>
 
-function markVisited(id) {
-  visited.add(id);
-  saveProgress();
-  updateProgress();
-}
+          ${sections}
+        `,
+        hint: "Print this profile or choose Save as PDF in the print dialog.",
+        action: "Print / Save PDF ↓"
+      });
+    }
 
-/* MODAL & FOCUS MANAGEMENT */
-function showDialog() {
-  if (!dialog.open) {
-    lastTrigger = document.activeElement;
-    document.body.classList.add("modal-open");
-    dialog.showModal();
-  }
-  dialog.scrollTop = 0;
-  $("closeDialog").focus({ preventScroll: true });
-}
+    function openDesignNotes() {
+      if (visited.size !== chapters.length) return;
+      currentView = "notes";
 
-function openChapter(id) {
-  const chapter = CHAPTERS.find(item => item.id === id);
-  if (!chapter) return;
+      const cards = [
+        {
+          title: "01 / A place to begin",
+          text:
+            "Hong Kong provides the setting. Four districts organise " +
+            "the story into background, career, projects and community."
+        },
+        {
+          title: "02 / Discovery is optional",
+          text:
+            "The harbour offers a guided way to explore. Recruiter " +
+            "view brings the same information together immediately. " +
+            "No professional details are locked behind the passport."
+        },
+        {
+          title: "03 / Small interactions, clear purpose",
+          text:
+            "Stamps show which districts have been visited, while " +
+            "the next-stop button offers direction. Progress can " +
+            "be reset at any time."
+        },
+        {
+          title: "04 / The details matter",
+          text:
+            "The page includes keyboard focus styles, native dialogs, " +
+            "reduced-motion support, an animation control, responsive " +
+            "layouts and a dedicated print profile."
+        }
+      ];
 
-  currentView = { type: "chapter", id };
-  markVisited(id);
+      setDialog({
+        label: "Harbour Passport / Bonus stop",
+        title: "Behind the harbour.",
+        body:
+          `<p class="lead">Thanks for exploring all four districts. ` +
+          `Here’s how this little journey is put together.</p>` +
+          renderCards(cards),
+        hint: "Passport complete. Thanks for getting to know me.",
+        action: "View full profile →"
+      });
+    }
 
-  $("dialogLabel").textContent =
-    `Perspective 0${CHAPTERS.indexOf(chapter) + 1} / ${chapter.label}`;
+    function nextStop() {
+      const next = nextUnvisited();
+      if (next) openChapter(next.id);
+      else openDesignNotes();
+    }
 
-  $("dialogBody").innerHTML = `
-    <h2 id="dialogTitle">${escapeHTML(chapter.heading)}</h2>
-    ${chapterContent(id)}`;
+    function buildPrintProfile() {
+      $("printProfile").innerHTML = `
+        <h1>${escapeHTML(PROFILE.name)}</h1>
 
-  $("dialogHint").textContent =
-    `${visited.size} of 4 perspectives explored`;
+        <p>${escapeHTML(PROFILE.role)} ·
+          ${escapeHTML(PROFILE.organisation)}
+${escapeHTML(PROFILE.location)}</p>
 
-  $("dialogNext").textContent = id === CHAPTERS[3].id
-    ? "View full profile ↗"
-    : "Next perspective →";
+        <p class="print-contact">${escapeHTML(PROFILE.email)}
+${escapeHTML(PROFILE.linkedin)}</p>
 
-  showDialog();
-}
+        <p>${escapeHTML(PROFILE.summary)}</p>
 
-function openFullProfile() {
-  currentView = { type: "full" };
-  $("dialogLabel").textContent = "Recruiter view / Full professional profile";
-  $("dialogBody").innerHTML = fullProfile();
-  $("dialogHint").textContent = "All chapters. No exploration required.";
-  $("dialogNext").textContent = "Export PDF ↓";
-  showDialog();
-}
+        ${chapters.map(chapter => `
+          <section>
+            <h2>${escapeHTML(chapter.label)}</h2>
+            <p>${escapeHTML(chapter.summary)}</p>
 
-function openProject(index) {
-  const project = PROFILE.projects[index];
-  if (!project) return;
+            ${chapter.cards.map(card => `
+              <div class="print-card">
+                <h3>${escapeHTML(card.title)}</h3>
+                ${card.meta
+                  ? `<p class="card-meta">${escapeHTML(card.meta)}</p>`
+                  : ""}
+                <p>${escapeHTML(card.text)}</p>
+              </div>
+            `).join("")}
+          </section>
+        `).join("")}
+      `;
+    }
 
-  currentView = { type: "project", index };
-  $("dialogLabel").textContent = "Selected work / Engagement overview";
-  $("dialogBody").innerHTML = `
-    <h2 id="dialogTitle">${escapeHTML(project.title)}</h2>
-    <div class="detail-meta">${escapeHTML(project.meta)}</div>
-    <p class="lead" style="white-space:pre-line">${escapeHTML(project.detail)}</p>
-    ${chips(
-      index === 0
-        ? ["Investment ESG", "Operating model", "Programme coordination"]
-        : index === 1
-          ? ["Business analysis", "Stakeholder facilitation", "Technology fit"]
-          : ["Technology roadmap", "Business priorities", "Future-state planning"]
-    )}`;
+    $("districts").innerHTML = chapters.map((chapter, index) => `
+      <button
+        class="district"
+        type="button"
+        data-chapter="${chapter.id}"
+        aria-haspopup="dialog"
+        aria-controls="profileDialog"
+      >
+        <span class="district-number">
+          DISTRICT ${String(index + 1).padStart(2, "0")}
+        </span>
+        <span class="district-check" aria-hidden="true">↗</span>
+        <strong>${escapeHTML(chapter.district)}</strong>
+        <small>${escapeHTML(chapter.label)}</small>
+      </button>
+    `).join("");
 
-  $("dialogHint").textContent = "Part of the selected work collection.";
-  $("dialogNext").textContent = "View all selected work →";
-  showDialog();
-}
+    $("districts").addEventListener("click", event => {
+      const button = event.target.closest("[data-chapter]");
+      if (button) openChapter(button.dataset.chapter);
+    });
 
-$("closeDialog").addEventListener("click", () => dialog.close());
+    ["recruiterButton", "profileButton"].forEach(id => {
+      $(id).setAttribute("aria-haspopup", "dialog");
+      $(id).setAttribute("aria-controls", "profileDialog");
+      $(id).addEventListener("click", openProfile);
+    });
 
-dialog.addEventListener("close", () => {
-  document.body.classList.remove("modal-open");
-  if (lastTrigger && document.contains(lastTrigger)) {
-    lastTrigger.focus({ preventScroll: true });
-  }
-});
+    ["startButton", "passportNext"].forEach(id => {
+      $(id).setAttribute("aria-haspopup", "dialog");
+      $(id).setAttribute("aria-controls", "profileDialog");
+    });
 
-dialog.addEventListener("click", event => {
-  if (event.target !== dialog) return;
-  const bounds = dialog.getBoundingClientRect();
-  const outside =
-    event.clientX < bounds.left || event.clientX > bounds.right ||
-    event.clientY < bounds.top || event.clientY > bounds.bottom;
-  if (outside) dialog.close();
-});
+    $("startButton").addEventListener("click", () => {
+      openChapter((nextUnvisited() || chapters[0]).id);
+    });
 
-$("dialogNext").addEventListener("click", () => {
-  if (currentView.type === "full") {
-    exportPDF();
-  } else if (currentView.type === "project") {
-    openChapter("projects");
-  } else {
-    const index = CHAPTERS.findIndex(chapter => chapter.id === currentView.id);
-    if (index === CHAPTERS.length - 1) openFullProfile();
-    else openChapter(CHAPTERS[index + 1].id);
-  }
-});
+    $("passportNext").addEventListener("click", nextStop);
 
-document.addEventListener("click", event => {
-  const chapter = event.target.closest("[data-chapter]");
-  const project = event.target.closest("[data-project]");
-  const full = event.target.closest("[data-full-profile]");
-  const pdf = event.target.closest("[data-export]");
+    $("dialogNext").addEventListener("click", () => {
+      if (currentView === "chapter") {
+        nextStop();
+      } else if (currentView === "notes") {
+        openProfile();
+      } else {
+        $("profileDialog").close();
+        document.body.style.overflow = "";
 
-  if (chapter) openChapter(chapter.dataset.chapter);
-  else if (project) openProject(Number(project.dataset.project));
-  else if (full) openFullProfile();
-  else if (pdf) exportPDF();
-});
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => window.print());
+        });
+      }
+    });
 
-/* EXPORTS */
-function exportPDF() {
-  $("printProfile").innerHTML = fullProfile(true);
-  if (dialog.open) dialog.close();
+    $("closeDialog").addEventListener("click", () => {
+      $("profileDialog").close();
+    });
 
-  // Exit the modal top layer before opening the browser print dialog.
-  setTimeout(() => window.print(), 150);
-}
+    $("profileDialog").addEventListener("close", () => {
+      document.body.style.overflow = "";
+    });
 
-window.addEventListener("beforeprint", () => {
-  $("printProfile").innerHTML = fullProfile(true);
-});
+    $("resetButton").addEventListener("click", () => {
+      if (!visited.size) {
+        $("passportStatus").textContent =
+          "Your passport is ready for its first stamp. Choose any district.";
+        return;
+      }
 
-$("saveWebsite").addEventListener("click", () => {
-  // Save a clean copy without the current visitor's open panels or progress.
-  const copy = document.documentElement.cloneNode(true);
-  copy.querySelector("body").classList.remove("modal-open", "motion-paused");
-  copy.querySelector("#profileDialog").removeAttribute("open");
-  copy.querySelector("#dialogBody").innerHTML = "";
-  copy.querySelector("#printProfile").innerHTML = "";
-  copy.querySelector("#toast").textContent = "";
-  copy.querySelector("#toast").classList.remove("visible");
+      if (!window.confirm(
+        "Clear your collected stamps and start again?"
+      )) return;
 
-  copy.querySelector("#cityPins").innerHTML = "";
-  copy.querySelector("#cityIndex").innerHTML = "";
-  copy.querySelector("#discoveryTrack").innerHTML = "";
-  copy.querySelector("#discoveryText").textContent = "0 of 4 perspectives explored";
+      visited = new Set();
+      saveVisited();
+      renderProgress();
+    });
 
-  const motionButton = copy.querySelector("#motionToggle");
-  motionButton.textContent = "Pause motion";
-  motionButton.setAttribute("aria-pressed", "false");
+    const motionPreference = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    );
 
-  const file = new Blob(
-    ["<!DOCTYPE html>\n", copy.outerHTML],
-    { type: "text/html;charset=utf-8" }
-  );
-  const url = URL.createObjectURL(file);
-  const link = document.createElement("a");
-  link.href = url;
-  link.download = "danny-hong-kong-portfolio.html";
-  document.body.append(link);
-  link.click();
-  link.remove();
-  setTimeout(() => URL.revokeObjectURL(url), 30000);
-  notify("Website download requested.");
-});
+    $("motionButton").hidden = motionPreference.matches;
 
-/* SUBTLE MOTION CONTROLS */
-const motionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
-let manuallyPaused = false;
+    motionPreference.addEventListener("change", event => {
+      $("motionButton").hidden = event.matches;
+    });
 
-function updateMotion() {
-  const reduced = motionPreference.matches;
-  const paused = reduced || manuallyPaused;
-  document.body.classList.toggle("motion-paused", paused);
+    $("motionButton").addEventListener("click", () => {
+      const paused = document.body.classList.toggle("motion-off");
 
-  const button = $("motionToggle");
-  button.textContent = reduced
-    ? "Reduced motion"
-    : paused ? "Resume motion" : "Pause motion";
+      $("motionButton").setAttribute("aria-pressed", String(paused));
+      $("motionButton").textContent = paused
+        ? "Replay animation"
+        : "Pause animation";
+    });
 
-  button.setAttribute("aria-pressed", String(paused));
-  button.disabled = reduced;
-  button.title = reduced
-    ? "Motion is disabled to respect your device preference."
-    : "Pause or resume decorative harbour animation.";
-}
+    document.querySelector(".boat").addEventListener(
+      "animationend",
+      () => {
+        document.body.classList.add("motion-off");
+        $("motionButton").setAttribute("aria-pressed", "true");
+        $("motionButton").textContent = "Replay animation";
+      }
+    );
 
-$("motionToggle").addEventListener("click", () => {
-  manuallyPaused = !manuallyPaused;
-  updateMotion();
-});
+    window.addEventListener("storage", event => {
+      if (event.key === storageKey || event.key === null) {
+        visited = loadVisited();
+        renderProgress();
+      }
+    });
 
-if (motionPreference.addEventListener) {
-  motionPreference.addEventListener("change", updateMotion);
-}
-
-/* PROGRESS & STATUS */
-function notify(message) {
-  clearTimeout(toastTimer);
-  $("toast").textContent = message;
-  $("toast").classList.add("visible");
-  toastTimer = setTimeout(() => $("toast").classList.remove("visible"), 3000);
-}
-
-$("resetProgress").addEventListener("click", () => {
-  visited.clear();
-  saveProgress();
-  updateProgress();
-  notify("Exploration progress reset.");
-});
-
-loadProgress();
-buildExplorer();
-updateProgress();
-updateMotion();
-$("printProfile").innerHTML = fullProfile(true);
-</script>
+    buildPrintProfile();
+    renderProgress();
+  </script>
 
 
 </body></html>
